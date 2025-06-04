@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Information Sheet for PhD Study on Coping and Help-seeking among Ukrainian Adolescent Girls and Young Women in the UK" />
+  <title>Participant Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      padding-top: 50px;
+    }
+
+    header {
+      background-color: white;
+      color: #333;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      max-height: 180px;
+      width: auto;
+      display: block;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    p {
+      font-weight: normal;
+    }
+
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .language-section {
+      display: none;
+    }
+
+    .language-section.active {
+      display: block;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 200px;
+      padding: 20px;
+      background-color: #f0f0f0;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+    }
+
+    #top-banner {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #top-banner a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    #top-banner a:hover {
+      color: #cce5ff;
+    }
+
+    /* NEW: Make language switch button larger and styled */
+    select {
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.language-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      const langSection = document.querySelector(`#lang-${lang}`);
+      if (langSection) {
+        langSection.classList.add('active');
+      }
+
+      document.querySelectorAll('.header-text').forEach(el => {
+        el.style.display = 'none';
+      });
+      const header = document.querySelector(`#header-${lang}`);
+      if (header) header.style.display = 'inline';
+
+      document.querySelectorAll('.sidebar-text').forEach(el => {
+        el.style.display = 'none';
+      });
+      document.querySelectorAll(`#sidebar-header-${lang}`).forEach(el => {
+        el.style.display = 'block';
+      });
+
+      const linkIds = ['info', 'contact', 'survey'];
+      linkIds.forEach(id => {
+        const enLink = document.querySelector(`#link-${id}-en`);
+        const ukLink = document.querySelector(`#link-${id}-uk`);
+
+        if (enLink && ukLink) {
+          enLink.style.display = (lang === 'en') ? 'inline' : 'none';
+          ukLink.style.display = (lang === 'uk') ? 'inline' : 'none';
+        }
+      });
+
+      const bannerEn = document.getElementById('link-survey-banner-en');
+      const bannerUk = document.getElementById('link-survey-banner-uk');
+      if (bannerEn && bannerUk) {
+        bannerEn.style.display = (lang === 'en') ? 'inline' : 'none';
+        bannerUk.style.display = (lang === 'uk') ? 'inline' : 'none';
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div id="top-banner">
+      <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" target="_self" id="link-survey-banner-en">Click here to go to the survey</a>
+      <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" target="_self" id="link-survey-banner-uk" style="display:none;">Натисніть тут, щоб пройти опитування</a>
+    </div>
+
+    <div class="logo-container">
+      <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
+      <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
+    </div>
+
+    <h1 class="header">
+      <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
+      <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
+    </h1>
+    
+    <select onchange="switchLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="uk">Ukrainian</option>
+    </select>
+  </header>
+</body>
+</html>
+
+
+  <div class="container">
+    <div id="contents" class="sidebar">
+      <h3 id="sidebar-header-en" class="sidebar-text">Contents</h3>
+      <h3 id="sidebar-header-uk" class="sidebar-text" style="display:none;">Зміст</h3>
+
+    <ul>
+  <li>
+    <a href="index.html#info" class="sidebar-text" id="link-info-en">Participant Information</a>
+    <a href="index.html#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
+  </li>
+  <li>
+    <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" class="sidebar-text" id="link-survey-en">Click here to go to the survey</a>
+    <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" class="sidebar-text" id="link-survey-uk" style="display:none;">Натисніть тут, щоб пройти опитування</a>
+  </li>
+  <li>
+    <a href="contact.html" class="sidebar-text" id="link-contact-en">Help & Contact Information</a>
+    <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none">Довідка та Контактна інформація</a>
+  </li>
+</ul>
+    </div> 
+    
+    
+  <main class="main">
+  <!-- English Content -->
+  <div id="lang-en" class="language-section active">
+    <h2 id="HelpContact">Help & Contact Information</h2>
+    <h3>Contact Us</h3>
+    <p>
+      If you have any questions about this study, or experience increasing levels of distress in the hours or days after completing the survey, please contact the main researcher responsible for this PhD project, Sophia Lobanov-Rostovsky (<a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>) or the PhD project supervisors, Dr. Joelle Mak (<a href="mailto:joelle.mak@lshtm.ac.uk">joelle.mak@lshtm.ac.uk</a>) or Prof. Loraine Bacchus (<a href="mailto:loraine.bacchus@lshtm.ac.uk">loraine.bacchus@lshtm.ac.uk</a>).
+    </p>
+
+    <h3>Help from mental health and psychosocial support services</h3>
+    <p>
+      If you feel that you would benefit from professional mental health and psychosocial support, the main researcher responsible for the PhD project, Sophia Lobanov-Rostovsky (<a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>), can help you to access appropriate services. If you prefer to contact the services yourself, please visit: 
+    </p>
+  </div>
+
+  <!-- Ukrainian Content -->
+  <div id="lang-uk" class="language-section">
+    <h2 id="HelpContactUk">Довідка та контактна інформація</h2>
+    <h3>Зв'яжіться з нами</h3>
+    <p>
+      Якщо у вас є будь-які запитання або ви відчуваєте підвищений  рівень стресу протягом годин або днів після завершення опитування, будь ласка, надішліть електронного листа дослідниці, відповідальній за цей дисертаційний проєкт, Софії Лобановій-Ростовській (<a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>) або керівникам проєкту: докторці Джоель Мак (<a href="mailto:joelle.mak@lshtm.ac.uk">joelle.mak@lshtm.ac.uk</a>) або професорці Лорейн Бакхус (<a href="mailto:loraine.bacchus@lshtm.ac.uk">loraine.bacchus@lshtm.ac.uk</a>).
+    </p>
+
+    <h3>Допомога від служб психічного здоров'я та психосоціальної підтримки</h3>
+    <p>
+      Якщо ви вважаєте, що вам була б корисна професійна підтримка у сфері психічного здоров’я та психосоціальної підтримки, дослідниця Софія Лобанова-Ростовська (<a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>) може допомогти вам отримати доступ до відповідних послуг. Якщо ви бажаєте самостійно звернутися до служб, будь ласка, відвідайте наступні посилання:
+    </p>
+  </div>
+</main>
+  
