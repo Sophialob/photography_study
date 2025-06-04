@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PhD research survey: Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK" />
+  <title>Participant Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      padding-top: 50px;
+    }
+
+    header {
+      background-color: white;
+      color: #333;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      max-height: 180px;
+      width: auto;
+      display: block;
+    }
+    
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+      font-weight: bold;
+    }
+
+    p {
+      font-weight: normal;
+    }
+
+    a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .language-section {
+      display: none;
+    }
+
+    .language-section.active {
+      display: block;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 200px;
+      padding: 20px;
+      background-color: #f0f0f0;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow-y: auto;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+    }
+
+    #top-banner {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #top-banner a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    #top-banner a:hover {
+      color: #cce5ff;
+    }
+
+    /* NEW: Make language switch button larger and styled */
+    select {
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.language-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      const langSection = document.querySelector(`#lang-${lang}`);
+      if (langSection) {
+        langSection.classList.add('active');
+      }
+
+      document.querySelectorAll('.header-text').forEach(el => {
+        el.style.display = 'none';
+      });
+      const header = document.querySelector(`#header-${lang}`);
+      if (header) header.style.display = 'inline';
+
+      document.querySelectorAll('.sidebar-text').forEach(el => {
+        el.style.display = 'none';
+      });
+      document.querySelectorAll(`#sidebar-header-${lang}`).forEach(el => {
+        el.style.display = 'block';
+      });
+
+      const linkIds = ['info', 'contact', 'survey'];
+      linkIds.forEach(id => {
+        const enLink = document.querySelector(`#link-${id}-en`);
+        const ukLink = document.querySelector(`#link-${id}-uk`);
+
+        if (enLink && ukLink) {
+          enLink.style.display = (lang === 'en') ? 'inline' : 'none';
+          ukLink.style.display = (lang === 'uk') ? 'inline' : 'none';
+        }
+      });
+
+      const bannerEn = document.getElementById('link-survey-banner-en');
+      const bannerUk = document.getElementById('link-survey-banner-uk');
+      if (bannerEn && bannerUk) {
+        bannerEn.style.display = (lang === 'en') ? 'inline' : 'none';
+        bannerUk.style.display = (lang === 'uk') ? 'inline' : 'none';
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div id="top-banner">
+      <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" target="_self" id="link-survey-banner-en">Click here to go to the survey</a>
+      <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" target="_self" id="link-survey-banner-uk" style="display:none;">Натисніть тут, щоб пройти опитування</a>
+    </div>
+
+    <div class="logo-container">
+      <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
+      <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
+    </div>
+
+    <h1 class="header">
+      <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
+      <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
+    </h1>
+    
+    <select onchange="switchLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="uk">Ukrainian</option>
+    </select>
+  </header>
+</body>
+</html>
+
+
+  <div class="container">
+    <div id="contents" class="sidebar">
+      <h3 id="sidebar-header-en" class="sidebar-text">Contents</h3>
+      <h3 id="sidebar-header-uk" class="sidebar-text" style="display:none;">Зміст</h3>
+
+    <ul>
+  <li>
+    <a href="#info" class="sidebar-text" id="link-info-en">Participant Information</a>
+    <a href="#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
+  </li>
+  <li>
+    <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" class="sidebar-text" id="link-survey-en">Click here to go to the survey</a>
+    <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" class="sidebar-text" id="link-survey-uk" style="display:none;">Натисніть тут, щоб пройти опитування</a>
+  </li>
+  <li>
+    <a href="contact.html" class="sidebar-text" id="link-contact-en">Help & Contact Information</a>
+    <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none">Довідка та Контактна інформація</a>
+  </li>
+</ul>
+    </div> 
+    
+    <main class="main">
+      <!-- English Content -->
+      <div id="lang-en" class="language-section active">
+        <h2 id="info">Participant Information</h2>
+    
+    
+<h3> Introduction</h3>
+<p>We would like to invite you to take part in this PhD research study. Joining the study is entirely up to you. Before you decide if you would like to participate, you need to understand why the research is being done and what it would involve. Please take your time to decide whether you would like to take part. </p>
+
+<h3> What is the purpose of the study? </h3>
+<p>This PhD project aims to explore coping and help-seeking among Ukrainian adolescent girls and young women (aged 15-24 years old) living in the United Kingdom (UK) since the onset of the Russia-Ukraine war in February 2022. From this research, we hope to gain a better understanding of the challenges experienced by Ukrainian adolescent girls and young women living in the UK, how they cope and seek support for their mental health. </p>
+
+<h3> Why have I been asked to take part? </h3>
+<p>You have been invited to take part because you are a Ukrainian adolescent girl or young woman who has moved to the UK since the onset of the Russia-Ukraine war. Your participation and insights are extremely important. They would allow us to understand the mental health of young Ukrainian women living in the UK, how Ukrainian adolescent girls and young women cope, and where they go to for support. </p>
+
+<h3> Do I have to take part? </h3>
+<p> It is entirely your decision if you would like to take part. If you do decide to take part, you will be asked to indicate your informed consent by ticking the boxes required before entering the study. You can withdraw at any time without giving a reason, by emailing the researcher responsible for the project with your unique number code which will be provided to you on the survey platform (Sophia Lobanov-Rostovsky, <a href="mailto: sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>).</p>
+ 
+<h3> What will I have to do? </h3>
+<p> You will be asked to complete an online survey about your general health, coping strategies and types of support would consider seeking in different situations. The survey will take no longer than 15 minutes to complete. </p>
+
+<h3> What are the possible risks and disadvantages? </h3>
+<p> Some questions in the survey will be of sensitive nature (about your mental health) and so this study may not be suitable for those who are suffering from acute mental health problems (severe depression, severe anxiety or severe trauma). Some questions will also ask about your coping strategies, and so may not be suitable for those who have major problems with drugs or alcohol. We encourage you to discuss your potential participation in the study with someone before deciding if you would like to participate. If you are a minor (under the age of 18), we strongly encourage to discuss your participation with an adult. 
+
+To ensure you feel supported, you can access a <a href="https://sophialob.github.io/phd-project/contact.html"> list of services </a> that provide support to Ukrainian adolescent girls and young women in the UK and online. You may also contact the researcher responsible for the project at any time if you have questions or feel distressed (Sophia Lobanov-Rostovsky, <a href="mailto: sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>).</p>
+
+<h3> What are the possible benefits? </h3>
+<p> While we cannot promise the study will help you directly, the information we get will considerably help our knowledge and understanding of how Ukrainian adolescent girls and young women in the UK cope and seek support for their mental health. We hope the findings will help to inform the development of more effective support for Ukrainian adolescent girls and young women, and other young female refugee populations, in the UK. </p>
+
+<h3> What if something goes wrong? </h3>
+<p> If you have concerns about any aspect of this study, you should speak to the researcher responsible for the project who will do their best to answer your questions (sophia.lobanov-rostovsky@lshtm.ac.uk). If you remain unhappy and wish to complain formally, you can do this by contacting <a href="mailto: rgio@lshtm.ac.uk">rgio@lshtm.ac.uk</a>).</p>
+
+<h3> Can I change my mind about taking part? </h3>
+<p> Yes, you can withdraw from the study at any time. You just need to email the researcher responsible for the project (Sophia Lobanov-Rostovsky, <a href="mailto: sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>) and say that you don’t want to be in the study anymore, providing your unique identifier code which will be given to you when you start the survey. If you decide to withdraw you will be asked what you wish to happen to the data you have provided up to that point. If your data has not been analysed yet, it will be deleted immediately. However, if your data has already been analysed, it may not be possible to delete it. </p>
+
+<h3> What will happen to information collected about me? </h3>
+<p> The London School of Hygiene and Tropical Medicine is based in the UK and will act as the data controller for this study.  This means that they are responsible for looking after your information and using it properly.  To follow the UK’s data protection regulations, we must inform you of how we will use and store your personal data. 
+
+All information we collect during this study will be anonymous and stored securely on an online server. Findings from this project will be published in a PhD thesis which will be available in the public domain. Study data will also be archived in the UK Data Service and London School of Hygiene and Tropical Medicine data repository. The data will be made available to other researchers worldwide for 10 years after completion of the study (completion of the overall project, March 2027).  All data will be anonymous, so there is a minimal risk that you can be identified. </p>
+
+<h3> What are your choices about how your information is used? </h3>
+<p> We need to manage your records in specific ways for the research to be reliable. This means we won’t be able to let you see or change the data we hold about you.  </p>
+
+<h3> Where can you find out more about how your information is used? </h3>
+<p> You can find out more about how we use your information at <a href=" https://www.lshtm.ac.uk/sites/default/files/research-participant-privacy-notice.pdf"> Research Participant Privacy Notice</a>, by emailing one of the research team, or by sending an email to <a href="mailto: DPO@lshtm.ac.uk">DPO@lshtm.ac.uk</a>. </p>
+
+<h3> What will happen to the results of this study? </h3>
+<p> The study results will be published in a PhD thesis upon completion of the overall project (March 2027) and in peer-reviewed academic journals, to allow other researchers and policymakers to learn from them.  If you would like to see the results of the study, please bookmark this webpage and return to it in a few months’ time where we will display the final results.  </p>
+
+<h3> Who is organising and funding this study? </h3>
+<p> This study is funded by the Economic and Social Research Council, which is the largest funder of economic, social, behavioural and human data science in the UK. The London School of Hygiene & Tropical Medicine has full responsibility for the project including the collection, storage and analysis of your data, and will act as the Data Controller for the study.  </p>
+
+<h3> Who has reviewed this study? </h3>
+<p>All research involving human participants is looked at by an independent group of people, called a Research Ethics Committee, to protect your interests. This study has been reviewed and accepted by The London School of Hygiene and Tropical Medicine Research Ethics Committee (ref: 31283). </p> 
+
+<h3> Further information and contact details </h3>
+<p> Thank you for taking time to read this information.  If you think you would like take part in the study, please <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6">click here</a></p.
+   <p>, where you will be asked to confirm your eligibility and provide your informed consent.  Once you provide your consent, you will then be able to enter the survey. If you have any questions about this study, please contact the main researcher responsible for this project (Sophia Lobanov-Rostovsky, <a href="mailto: sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>).</p> 
+    </div>
+
+    <!-- Ukrainian Content -->
+       <div id="lang-uk" class="language-section">
+  <h2 id="info">Інформація для учасника</h2>
+  
+<h3> Вступ</h3>
+<p> Ми хотіли б запросити вас взяти участь у цьому дисертаційному дослідженні.  Участь у дослідженні повністю залежить від вас. Перш, ніж вирішити, чи хотіли б ви взяти участь, вам потрібно зрозуміти, навіщо проводиться дослідження і що воно передбачає. Подумайте та дозвольте собі стільки часу скільки ви потребуєте щоб вирішити, чи хотіли би ви взяти участь. </p>
+
+<h3> Мета дослідження </h3>                                                                                                                                                                                       
+<p> Цей дисертаційний проєкт має на меті дослідити подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок (віком 15-24 років), які проживають у Великій Британії з початку російсько-української війни у лютому 2022 року. Завдяки цьому дослідженню ми сподіваємося отримати краще розуміння проблем, з якими стикаються українські дівчата-підлітки та молоді жінки, які проживають у Великій Британії, як вони справляються з ними та яким чином шукають підтримки свого психічного здоров'я. </p>
+
+<h3> Чому ми вас запросили? </h3>
+<p> Вас запросили взяти участь, тому що ви українка, дівчина-підліток або молода жінка, яка переїхала до Великої Британії після початку війни. Ваша участь та думки є надзвичайно важливими. Вони допоможуть нам зрозуміти стан психічного здоров'я молодих українських жінок, які живуть в Британії, зрозуміти як вони дають собі раду та куди вони звертаються за підтримкою. </p>
+
+<h3>Чи маю я прийняти участь? </h3>
+<p> Це виключно ваше рішення. Якщо ви вирішите, що хотіли б взяти участь, тоді вас попросять показати що ви маєте право на участь у дослідженні. Вам також буде запропоновано надати свою згоду, поставивши позначки в необхідних полях перед початком опитування. Ви можете відмовитися від участі в дослідженні в будь-який час без пояснення причини, надіславши електронного листа дослідниці , відповідальній  за проєкт , вказавши свій унікальний код, який буде надано вам на початку опитування. Ваша участь або відмова від участі в дослідженні не вплине на будь-які послуги або якість послуг, які ви отримуєте. Ви можете відмовитися від участі в дослідженні в будь-який час без пояснення причини, надіславши електронного листа досліднику, відповідальному за проект, вказавши свій унікальний код, який буде надано вам на початку опитування. Ваша участь або відмова від участі в дослідженні не вплине на будь-які послуги або якість послуг, які ви отримуєте. </p>
+
+<h3> Що мені потрібно буде робити? </h3>
+<p> Вас попросять пройти онлайн-опитування про ваш загальний стан здоров'я, про те, як ви долаєте труднощі і ту підтримку, за якою ви б звернулися в різних ситуаціях. Опитування займе приблизно 15 хвилин. </p>
+
+<h3> Якими є можливі ризики та недоліки моєї участі у дослідженні? </h3>
+<p> Деякі запитання в опитуванні будуть чутливого характеру (щодо вашого психічного здоров’я), тому це дослідження може бути неприйнятним для тих, хто страждає від гострих проблем з психічним здоров’ям (наприклад, депресія, сильна тривога або серйозна травма). Деякі запитання стосуватимуться ваших стратегій подолання проблем, тому вони можуть не підходити для тих, хто має серйозні проблеми з наркотиками чи алкоголем. Ми рекомендуємо вам обговорити з кимось вашу участь у дослідженні, перш ніж вирішити, чи хочете ви брати участь. Якщо ви неповнолітня (віком до 18 років), ми наполегливо рекомендуємо вам обговорити з дорослим вашу участь. Щоб переконатися, що ви отримуєте підтримку, яка вам потрібна, вам буде надано список служб, які надають підтримку українським дівчатам-підліткам і молодим жінкам у Великобританії та в Інтернеті. Ви також можете у будь-який момент зв’язатися з дослідником, відповідальним за проект, якщо у вас виникнуть запитання чи переживання (Софія Лобанов-Ростовська, <a href="mailto: sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>). </p>
+
+<h3> Що є можливими перевагами участі у дослідженні? </h3>
+<p> Хоча ми не можемо обіцяти, що дослідження допоможе вам безпосередньо, інформація, яку ми отримаємо, значно допоможе нашим знанням і розумінню того, як українські дівчата-підлітки та молоді жінки у Великій Британії справляються зі стресом та шукають підтримки свого психічного здоров’я. Ми сподіваємось, що отримані результати допоможуть розробити більш ефективні заходи для українських дівчат-підлітків і молодих жінок, а також інших молодих жінок-біженців, які проживають у Великій Британії. </p>
+
+<h3> Що, якщо щось піде не так? </h3>
+<p> Якщо у вас є сумніви щодо будь-якого аспекту цього дослідження, вам слід звернутися до дослідниці , відповідальної  за проєкт, яка  зробить усе можливе, щоб відповісти на ваші запитання (sophia.lobanov-rostovsky@lshtm.ac.uk). Якщо ви залишилися незадоволені та бажаєте офіційно поскаржитися, ви можете зробити це, написавши на rgio@lshtm.ac.uk).</p>
+
+<h3> Чи можу я змінити думку щодо участі у дослідженні? </h3>
+<p> Так, ви можете припинити участь в дослідження в будь-який час. Вам просто потрібно надіслати електронного листа дослідниці, відповідальній  за проєкт  (sophia.lobanov-rostovsky@lshtm.ac.uk), і повідомити, що ви більше не хочете брати участь у дослідженні, вказавши  свій унікальний цифровий код, який буде надано вам, коли ви почнете опитування. Якщо ви вирішите відмовитися, вас запитають, що ви хочете зробити з даними, які ви надали до цього моменту. Якщо ваші дані ще не проаналізовані, вони  будуть  негайно видалені. Проте, якщо ваші дані вже проаналізовані, видалити їх може бути неможливим. </p>
+
+<h3> Що станеться із зібраною про мене інформацією? </h3>
+<p> Лондонський інститут гігієни та тропічної медицини розташований у Великій Британії та виступатиме контролером даних у цьому дослідженні. Це означає, що вони відповідають за збереження вашої інформації та її належне використання. Щоб дотримуватися правил захисту персональних даних Великої Британії , ми повинні повідомити вам, як ми будемо використовувати та зберігати ваші персональні дані. Уся інформація, яку ми збираємо під час цього дослідження, буде анонімною та безпечно зберігатиметься на онлайн-сервері. Висновки цього проєкту  будуть опубліковані в докторській дисертації, яка буде знаходитись у відкритому доступі. Дані дослідження також будуть архівовані в Службі даних Великобританії та сховищі даних Лондонського інституту гігієни та тропічної медицини. Дані будуть доступні для інших дослідників у всьому світі протягом 10 років після завершення дослідження (завершення загального проєкту - березень 2027 року). Усі дані будуть анонімними, тому існує мінімальний ризик того, що вас можуть ідентифікувати.</p>
+
+<h3> Яким є ваш вибір щодо використання вашої інформації? </h3>
+<p> Нам потрібно керувати вашими записами певним чином для забезпечення надійності дослідження. Це означає, що ми не зможемо дозволити вам переглядати або змінювати дані про вас, які ми зберігаємо. </p>
+
+<h3>Де я можу знайти більше інформації про те, як використовують мої дані? </h3>
+<p> Ви можете дізнатися більше про те, як ми використовуємо ваші дані у розділі <a href=" https://www.lshtm.ac.uk/sites/default/files/research-participant-privacy-notice.pdf"> Повідомлення про конфіденційність учасників дослідження</a>, звернувшись до одного з дослідників або надіславши електронного листа на <a href="mailto: DPO@lshtm.ac.uk">DPO@lshtm.ac.uk</a>. </p>
+
+<h3>Що буде з результатами цього дослідження? </h3>
+<p> Результати дослідження будуть опубліковані в докторській дисертації після завершення загального проєкту (березень 2027 р.) і в рецензованих академічних журналах, щоб інші дослідники та законодавці могли знайти корисну інформацію. Якщо ви хочете побачити результати дослідження, додайте цю веб-сторінку в закладки та поверніться на неї через кілька місяців, коли ми відобразимо остаточні результати. </p>
+
+<h3>Хто організовує та фінансує це дослідження?</h3>              
+<p> Це дослідження фінансується Радою з економічних і соціальних досліджень, яка є найбільшим спонсором економічних, соціальних, поведінкових і людських дослідженьу Великої Британії . Лондонська школа гігієни та тропічної медицини несе повну відповідальність за проєкт, включаючи збір, зберігання та аналіз ваших даних, і виконуватиме функції контролера даних для дослідження.</p>
+
+<h3>Хто перевіряв це дослідження? </h3>          
+<p> Щоб захистити ваші інтереси, усі дослідження, в яких беруть участь люди, розглядає незалежна група під назвою Комітет з етики досліджень. Це дослідження було розглянуто та прийнято Комітетом з етики досліджень Лондонської школи гігієни та тропічної медицини (ref: 31283). </p>
+
+<h3> Додаткова інформація та контактні дані</h3>
+<p> Дякуємо, що знайшли час, щоб прочитати цю інформацію. Якщо ви вважаєте, що бажаєте взяти участь у дослідженні, перейдіть на <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6">цю сторінку,</a></p.> <p> де вас попросять підтвердити вашу відповідність вимогам і надати вашу інформовану згоду. Після того, як ви надасте свою згоду, ви зможете взяти участь в опитуванні. Якщо у вас виникли запитання щодо цього дослідження, будь ласка, зв’яжіться з головним дослідником, відповідальним за цей проєкт  (Софія Лобанова-Ростовська, sophia.lobanov-rostovsky@lshtm.ac.uk).</p>
+
+    </main>
+  </div>   
