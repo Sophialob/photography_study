@@ -1,0 +1,37 @@
+# GitHub Pages Configuration for Jekyll
+
+# Set the source directory (using root directory)
+source: /
+
+theme: null
+
+# Set the base URL (if you are using a custom domain, replace this)
+url: "https://your-username.github.io/your-repository-name"
+baseurl: ""
+
+# Exclude any unnecessary files from the build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Markdown configuration
+markdown: CommonMarkGhPages
+
+# Enable plugins
+plugins:
+  - jekyll-github-metadata
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+
+# Pagination (if needed)
+pagination:
+  enabled: true
