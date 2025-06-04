@@ -5,20 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="PhD research study: Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK" />
   <title>Participant Information</title>
+
   <style>
+    :root {
+      --primary-blue: #2f6fbd; /* slightly darker blue */
+      --hover-blue: #cce5ff;
+      --banner-yellow: yellow;
+      --hover-yellow: #fffacd;
+      --background-color: #f4f4f9;
+      --text-color: #333;
+    }
+
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       margin: 0;
-      padding: 0;
-      background-color: #f4f4f9;
-      color: #333;
-      padding-top: 100px; /* accommodate fixed top banners */
+      background-color: var(--background-color);
+      color: var(--text-color);
+      padding-top: 100px;
     }
 
     header {
       background-color: white;
-      color: #333;
       padding: 20px 0;
       text-align: center;
     }
@@ -33,7 +41,6 @@
     .logo {
       max-height: 180px;
       width: auto;
-      display: block;
     }
 
     main {
@@ -48,10 +55,6 @@
     h1, h2, h3 {
       color: #2c3e50;
       font-weight: bold;
-    }
-
-    p {
-      font-weight: normal;
     }
 
     a {
@@ -88,7 +91,7 @@
 
     .sidebar ul {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
       margin: 0;
     }
 
@@ -120,7 +123,7 @@
       font-size: 18px;
       font-weight: bold;
       position: fixed;
-      top: 40px; /* shifted lower to allow for contact banner */
+      top: 40px;
       left: 0;
       width: 100%;
       z-index: 9999;
@@ -133,13 +136,12 @@
     }
 
     #top-banner a:hover {
-      color: #cce5ff;
+      color: var(--hover-blue);
     }
 
-    /* Contact Banner */
     #contact-banner {
-      background-color: #4a90e2; /* lighter blue */
-      color: yellow;
+      background-color: var(--primary-blue);
+      color: var(--banner-yellow);
       text-align: center;
       padding: 12px 0;
       font-size: 18px;
@@ -153,16 +155,17 @@
     }
 
     #contact-banner a {
-      color: yellow;
+      color: var(--banner-yellow);
       text-decoration: underline;
+      padding: 10px;
     }
 
     #contact-banner a:hover {
-      color: #fffacd; /* pale yellow on hover */
+      color: var(--hover-yellow);
     }
 
     select {
-      font-size: 14px;
+      font-size: 1rem;
       padding: 8px 12px;
       border-radius: 5px;
       border: 1px solid #ccc;
@@ -173,95 +176,27 @@
     .header-subtitle {
       font-size: 1.5em;
       color: #2c3e50;
-      margin-top: 0;
-      margin-bottom: 10px;
+      margin: 0 0 10px 0;
       text-align: center;
     }
+
+    .header-text {
+      display: inline;
+    }
   </style>
-
-  <script>
-    // Disable browser automatic scroll restoration on history navigation
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-
-    function switchLanguage(lang) {
-      // Hide all language sections (if any)
-      document.querySelectorAll('.language-section').forEach(section => {
-        section.classList.remove('active');
-      });
-      const langSection = document.querySelector(`#lang-${lang}`);
-      if (langSection) {
-        langSection.classList.add('active');
-      }
-
-      // Toggle main header
-      document.querySelectorAll('.header-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      const header = document.querySelector(`#header-${lang}`);
-      if (header) header.style.display = 'inline';
-
-      // Toggle subtitle (always visible, but only one shown)
-      document.querySelectorAll('.header-subtitle .header-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      const subtitle = document.querySelector(`#subtitle-${lang}`);
-      if (subtitle) subtitle.style.display = 'inline';
-
-      // Sidebar text toggle
-      document.querySelectorAll('.sidebar-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      document.querySelectorAll(`#sidebar-header-${lang}`).forEach(el => {
-        el.style.display = 'block';
-      });
-
-      // Links toggle
-      const linkIds = ['info', 'contact', 'survey'];
-      linkIds.forEach(id => {
-        const enLink = document.querySelector(`#link-${id}-en`);
-        const ukLink = document.querySelector(`#link-${id}-uk`);
-
-        if (enLink && ukLink) {
-          enLink.style.display = (lang === 'en') ? 'inline' : 'none';
-          ukLink.style.display = (lang === 'uk') ? 'inline' : 'none';
-        }
-      });
-
-      // Banner links toggle
-      const bannerEn = document.getElementById('link-survey-banner-en');
-      const bannerUk = document.getElementById('link-survey-banner-uk');
-      if (bannerEn && bannerUk) {
-        bannerEn.style.display = (lang === 'en') ? 'inline' : 'none';
-        bannerUk.style.display = (lang === 'uk') ? 'inline' : 'none';
-      }
-    }
-
-    window.onload = () => {
-      // Wait briefly and scroll to top to avoid jumping
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 10);
-
-      switchLanguage('en');
-    };
-  </script>
 </head>
 <body>
-
-  <!-- Contact Banner -->
   <div id="contact-banner">
     <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk">Contact us here to participate</a>
   </div>
 
   <header>
     <div class="logo-container">
-      <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
-      <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
+      <img src="assets/LSHTM square.png" alt="LSHTM Logo" class="logo" />
+      <img src="assets/USC logo.png" alt="USC Logo" class="logo" />
     </div>
 
-    <h1 class="header">
+    <h1>
       <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
       <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
     </h1>
@@ -271,7 +206,6 @@
       <span class="header-text" id="subtitle-uk" style="display:none;">Дослідження за допомогою фотодокументації</span>
     </h2>
 
-    <!-- Centered language switch dropdown -->
     <div id="language-switcher" style="text-align: center; margin: 30px 0;">
       <select onchange="switchLanguage(this.value)">
         <option value="en">English</option>
@@ -280,7 +214,53 @@
     </div>
   </header>
 
+  <main>
+    <section id="lang-en" class="language-section active">
+      <h2>Welcome</h2>
+      <p>This is the English version of the participant information.</p>
+    </section>
 
+    <section id="lang-uk" class="language-section">
+      <h2>Ласкаво просимо</h2>
+      <p>Це українська версія інформації для учасників.</p>
+    </section>
+  </main>
+
+  <script defer>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.language-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      const langSection = document.querySelector(`#lang-${lang}`);
+      if (langSection) {
+        langSection.classList.add('active');
+      }
+
+      document.querySelectorAll('.header-text').forEach(el => {
+        el.style.display = 'none';
+      });
+
+      const header = document.querySelector(`#header-${lang}`);
+      const subtitle = document.querySelector(`#subtitle-${lang}`);
+      if (header) header.style.display = 'inline';
+      if (subtitle) subtitle.style.display = 'inline';
+
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (location.hash) {
+        history.replaceState(null, '', window.location.pathname);
+        window.scrollTo(0, 0);
+      }
+
+      const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+      switchLanguage(savedLang);
+      document.querySelector('select').value = savedLang;
+    });
+  </script>
+</body>
+</html>
      
     <main class="main">
       <!-- English Content -->
