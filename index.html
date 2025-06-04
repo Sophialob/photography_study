@@ -181,6 +181,7 @@
 
   <script>
     function switchLanguage(lang) {
+      // Hide all language sections (if any)
       document.querySelectorAll('.language-section').forEach(section => {
         section.classList.remove('active');
       });
@@ -189,12 +190,21 @@
         langSection.classList.add('active');
       }
 
+      // Toggle main header
       document.querySelectorAll('.header-text').forEach(el => {
         el.style.display = 'none';
       });
       const header = document.querySelector(`#header-${lang}`);
       if (header) header.style.display = 'inline';
 
+      // Toggle subtitle (always visible, but only one shown)
+      document.querySelectorAll('.header-subtitle .header-text').forEach(el => {
+        el.style.display = 'none';
+      });
+      const subtitle = document.querySelector(`#subtitle-${lang}`);
+      if (subtitle) subtitle.style.display = 'inline';
+
+      // Sidebar text toggle
       document.querySelectorAll('.sidebar-text').forEach(el => {
         el.style.display = 'none';
       });
@@ -202,6 +212,7 @@
         el.style.display = 'block';
       });
 
+      // Links toggle
       const linkIds = ['info', 'contact', 'survey'];
       linkIds.forEach(id => {
         const enLink = document.querySelector(`#link-${id}-en`);
@@ -213,6 +224,7 @@
         }
       });
 
+      // Banner links toggle
       const bannerEn = document.getElementById('link-survey-banner-en');
       const bannerUk = document.getElementById('link-survey-banner-uk');
       if (bannerEn && bannerUk) {
@@ -220,6 +232,11 @@
         bannerUk.style.display = (lang === 'uk') ? 'inline' : 'none';
       }
     }
+
+    // Initialize default language to English on page load
+    window.onload = () => {
+      switchLanguage('en');
+    };
   </script>
 </head>
 <body>
