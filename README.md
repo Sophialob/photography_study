@@ -1,6 +1,8 @@
 
 # Coping and help-seeking among of Ukrainian adolescent girls and young women living in the United Kingdom since the onset of the Russia-Ukraine war
 
+## Participatory Photography Study
+
 ## Information sheet
 We would like to invite you to take part in this PhD research study. Joining the study is entirely up to you. Before you decide if you would like to participate, you need to understand why the research is being done and what it would involve. Please take your time to decide whether you would like to take part.   
 
