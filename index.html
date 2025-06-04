@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="PhD research study: Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK" />
-  <title>Participatory Photography Study</title>
-    
     <title>Participant Information</title>
   <style>
     body {
@@ -166,6 +164,13 @@
         bannerUk.style.display = (lang === 'uk') ? 'inline' : 'none';
       }
     }
+    .header-subtitle {
+  font-size: 1.5em;
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
   </script>
 </head>
 <body>
@@ -176,14 +181,19 @@
     </div>
 
     <h1 class="header">
-      <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
-      <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
-    </h1>
-    
-    <select onchange="switchLanguage(this.value)">
-      <option value="en">English</option>
-      <option value="uk">Ukrainian</option>
-    </select>
+  <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
+  <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
+</h1>
+
+<h2 class="header-subtitle">
+  <span class="header-text" id="subtitle-en">Participatory Photography Study</span>
+  <span class="header-text" id="subtitle-uk" style="display:none;">Дослідження за допомогою фотодокументації</span>
+</h2>
+
+<select onchange="switchLanguage(this.value)">
+  <option value="en">English</option>
+  <option value="uk">Ukrainian</option>
+</select>
   </header>
 </body>
 </html>
