@@ -138,7 +138,7 @@
 
     /* Contact Banner */
     #contact-banner {
-      background-color: #4a90e2; /* blue */
+      background-color: #4a90e2; /* slightly lighter blue */
       color: yellow;
       text-align: center;
       padding: 12px 0;
@@ -233,8 +233,9 @@
       }
     }
 
-    // Initialize default language to English on page load
+    // Initialize default language and scroll to top on page load
     window.onload = () => {
+      window.scrollTo(0, 0);
       switchLanguage('en');
     };
   </script>
@@ -270,6 +271,7 @@
       </select>
     </div>
   </header>
+
      
     <main class="main">
       <!-- English Content -->
