@@ -180,68 +180,74 @@
   </style>
 
   <script>
-    function switchLanguage(lang) {
-      // Hide all language sections (if any)
-      document.querySelectorAll('.language-section').forEach(section => {
-        section.classList.remove('active');
-      });
-      const langSection = document.querySelector(`#lang-${lang}`);
-      if (langSection) {
-        langSection.classList.add('active');
-      }
+  function switchLanguage(lang) {
+    localStorage.setItem('preferredLang', lang);
 
-      // Toggle main header
-      document.querySelectorAll('.header-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      const header = document.querySelector(`#header-${lang}`);
-      if (header) header.style.display = 'inline';
-
-      // Toggle subtitle (always visible, but only one shown)
-      document.querySelectorAll('.header-subtitle .header-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      const subtitle = document.querySelector(`#subtitle-${lang}`);
-      if (subtitle) subtitle.style.display = 'inline';
-
-      // Sidebar text toggle
-      document.querySelectorAll('.sidebar-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      document.querySelectorAll(`#sidebar-header-${lang}`).forEach(el => {
-        el.style.display = 'block';
-      });
-
-      // Links toggle
-      const linkIds = ['info', 'contact', 'survey'];
-      linkIds.forEach(id => {
-        const enLink = document.querySelector(`#link-${id}-en`);
-        const ukLink = document.querySelector(`#link-${id}-uk`);
-
-        if (enLink && ukLink) {
-          enLink.style.display = (lang === 'en') ? 'inline' : 'none';
-          ukLink.style.display = (lang === 'uk') ? 'inline' : 'none';
-        }
-      });
-
-      // Banner links toggle
-      const bannerEn = document.getElementById('link-survey-banner-en');
-      const bannerUk = document.getElementById('link-survey-banner-uk');
-      if (bannerEn && bannerUk) {
-        bannerEn.style.display = (lang === 'en') ? 'inline' : 'none';
-        bannerUk.style.display = (lang === 'uk') ? 'inline' : 'none';
-      }
+    // Language sections
+    document.querySelectorAll('.language-section').forEach(section => {
+      section.classList.remove('active');
+    });
+    const activeSection = document.getElementById(`lang-${lang}`);
+    if (activeSection) {
+      activeSection.classList.add('active');
     }
 
-    // Initialize default language to English on page load
-    window.onload = () => {
-      // Prevent automatic scroll to hash on load
-      if (location.hash) {
-        history.replaceState(null, '', ' ');
+    // Headers
+    document.querySelectorAll('.header-text').forEach(el => {
+      el.style.display = 'none';
+    });
+    const header = document.getElementById(`header-${lang}`);
+    if (header) header.style.display = 'inline';
+
+    // Subtitles
+    document.querySelectorAll('.header-subtitle .header-text').forEach(el => {
+      el.style.display = 'none';
+    });
+    const subtitle = document.getElementById(`subtitle-${lang}`);
+    if (subtitle) subtitle.style.display = 'inline';
+
+    // Sidebar (if used)
+    document.querySelectorAll('.sidebar-text').forEach(el => {
+      el.style.display = 'none';
+    });
+    document.querySelectorAll(`#sidebar-header-${lang}`).forEach(el => {
+      el.style.display = 'block';
+    });
+
+    // Links toggle
+    ['info', 'contact', 'survey'].forEach(id => {
+      const enLink = document.querySelector(`#link-${id}-en`);
+      const ukLink = document.querySelector(`#link-${id}-uk`);
+      if (enLink && ukLink) {
+        enLink.style.display = (lang === 'en') ? 'inline' : 'none';
+        ukLink.style.display = (lang === 'uk') ? 'inline' : 'none';
       }
-      switchLanguage('en');
-    };
-  </script>
+    });
+
+    // Banner links toggle
+    const bannerEn = document.getElementById('link-survey-banner-en');
+    const bannerUk = document.getElementById('link-survey-banner-uk');
+    if (bannerEn && bannerUk) {
+      bannerEn.style.display = (lang === 'en') ? 'inline' : 'none';
+      bannerUk.style.display = (lang === 'uk') ? 'inline' : 'none';
+    }
+
+    // Set dropdown value
+    const select = document.querySelector('#language-switcher select');
+    if (select) {
+      select.value = lang;
+    }
+  }
+
+  window.onload = () => {
+    if (location.hash) {
+      history.replaceState(null, '', ' ');
+    }
+
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    switchLanguage(savedLang);
+  };
+</script>
 </head>
 <body>
 
