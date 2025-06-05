@@ -114,7 +114,7 @@
     }
 
     #top-banner {
-      background-color: #28a745; /* Green color */
+      background-color: #28a745;
       color: white;
       text-align: center;
       padding: 10px 0;
@@ -174,7 +174,6 @@
       linkIds.forEach(id => {
         const enLink = document.querySelector(`#link-${id}-en`);
         const ukLink = document.querySelector(`#link-${id}-uk`);
-
         if (enLink && ukLink) {
           enLink.style.display = (lang === 'en') ? 'inline' : 'none';
           ukLink.style.display = (lang === 'uk') ? 'inline' : 'none';
@@ -203,13 +202,17 @@
 
   <header>
     <div class="logo-container">
-      <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
-      <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
+      <img src="assets/LSHTM square.png" alt="LSHTM Logo" class="logo" />
+      <img src="assets/USC logo.png" alt="USC Logo" class="logo" />
     </div>
 
     <h1 class="header">
-      <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
-      <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
+      <span class="header-text" id="header-en">
+        Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war
+      </span>
+      <span class="header-text" id="header-uk" style="display:none;">
+        Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни
+      </span>
     </h1>
 
     <select onchange="switchLanguage(this.value)">
@@ -228,8 +231,17 @@
           <a href="#info" class="sidebar-text" id="link-info-en">Participant Information</a>
           <a href="#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
         </li>
+        <li>
+          <a href="contact.html" class="sidebar-text" id="link-contact-en">Help & Contact Information</a>
+          <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none;">Довідка та Контактна інформація</a>
+        </li>
+        <li>
+          <a href="contact.html" class="sidebar-text" id="link-survey-en">Parent/guardian information</a>
+          <a href="contact.html" class="sidebar-text" id="link-survey-uk" style="display:none;">Інформаційний лист для батьків/опікунів</a>
+        </li>
       </ul>
     </div>
+
 
     <main class="main">
       <!-- English Content -->
