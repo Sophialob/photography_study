@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="PhD participatory study: Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK" />
-  <title>Parent/Guardian Information</title>
+  <meta name="description" content="Information Sheet for PhD Study on Coping and Help-seeking among Ukrainian Adolescent Girls and Young Women in the UK" />
+  <title>Participant Information</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -105,7 +105,6 @@
       .container {
         flex-direction: column;
       }
-
       .sidebar {
         width: 100%;
         height: auto;
@@ -114,7 +113,7 @@
     }
 
     #top-banner {
-      background-color: #28a745; /* Green color */
+      background-color: #007BFF;
       color: white;
       text-align: center;
       padding: 10px 0;
@@ -137,6 +136,7 @@
       color: #cce5ff;
     }
 
+    /* NEW: Make language switch button larger and styled */
     select {
       font-size: 14px;
       padding: 8px 12px;
@@ -190,18 +190,13 @@
     }
   </script>
 </head>
-
 <body>
-  <div id="top-banner">
-    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" target="_self" id="link-survey-banner-en">
-      Contact us here to participate
-    </a>
-    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" target="_self" id="link-survey-banner-uk" style="display:none;">
-      Зв'яжіться з нами, щоб взяти участь
-    </a>
-  </div>
-
   <header>
+    <div id="top-banner">
+      <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" target="_self" id="link-survey-banner-en">Click here to go to the survey</a>
+      <a href="https://central.lshtm.ac.uk/-/single/Pn9gTwJeNigoFXyoUK2NU6fUdKTXjNA?st=ucoWxv4C6cOx9SgJvTrOTGNIgNMztK7rAmnxDA454X9PvMIcdXwcWn8!u4j6DjB6" target="_self" id="link-survey-banner-uk" style="display:none;">Натисніть тут, щоб пройти опитування</a>
+    </div>
+
     <div class="logo-container">
       <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
       <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
@@ -211,39 +206,39 @@
       <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
       <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
     </h1>
-
+    
     <select onchange="switchLanguage(this.value)">
       <option value="en">English</option>
       <option value="uk">Ukrainian</option>
     </select>
   </header>
+</body>
+</html>
+
 
   <div class="container">
     <div id="contents" class="sidebar">
       <h3 id="sidebar-header-en" class="sidebar-text">Contents</h3>
       <h3 id="sidebar-header-uk" class="sidebar-text" style="display:none;">Зміст</h3>
 
-      <ul>
-        <li>
-          <a href="#info" class="sidebar-text" id="link-info-en">Participant Information</a>
-          <a href="#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
-        </li>
-        <li>
-          <a href="contact.html" class="sidebar-text" id="link-survey-en">Parent/Guardian Information</a>
-          <a href="contact.html" class="sidebar-text" id="link-survey-uk" style="display:none;">ІНФОРМАЦІЙНИЙ ЛИСТ ДЛЯ БАТЬКІВ/ОПІКУНІВ</a>
-        </li>
-      </ul>
-    </div>
-
-    <main class="main">
-      <!-- English Content -->
-      <div id="lang-en" class="language-section active">
-        <h2 id="info">Parent/Guardian Information</h2>
+    <ul>
+  <li>
+    <a href="index.html#info" class="sidebar-text" id="link-info-en">Participant Information</a>
+    <a href="index.html#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
+  </li>
+  <li>
+    <a href="contact.html" class="sidebar-text" id="link-contact-en">Parent/Guardian Information</a>
+    <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none">Parent/Guardian Information</a>
+  </li>
+</ul>
+    </div> 
+    
     
   <main class="main">
   <!-- English Content -->
   <div id="lang-en" class="language-section active">
-    <h2 id="Parent/Guardian Information">Parent/Guardian Information</h2>
+    <h2 id="HelpContact">Help & Contact Information</h2>
+    <h3>Contact Us</h3>
     <p>
       If you have any questions about this study, or experience increasing levels of distress in the hours or days after completing the survey, please contact the main researcher responsible for this PhD project, Sophia Lobanov-Rostovsky (<a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>) or the PhD project supervisors, Dr. Joelle Mak (<a href="mailto:joelle.mak@lshtm.ac.uk">joelle.mak@lshtm.ac.uk</a>) or Prof. Loraine Bacchus (<a href="mailto:loraine.bacchus@lshtm.ac.uk">loraine.bacchus@lshtm.ac.uk</a>).
     </p>
@@ -256,7 +251,8 @@
 
   <!-- Ukrainian Content -->
   <div id="lang-uk" class="language-section">
-    <h2 id="Parent/Guardian Information">ІНФОРМАЦІЙНИЙ ЛИСТ ДЛЯ БАТЬКІВ/ОПІКУНІВ</h2>
+    <h2 id="HelpContactUk">Довідка та контактна інформація</h2>
+    <h3>Зв'яжіться з нами</h3>
     <p>
       Якщо у вас є будь-які запитання або ви відчуваєте підвищений  рівень стресу протягом годин або днів після завершення опитування, будь ласка, надішліть електронного листа дослідниці, відповідальній за цей дисертаційний проєкт, Софії Лобановій-Ростовській (<a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>) або керівникам проєкту: докторці Джоель Мак (<a href="mailto:joelle.mak@lshtm.ac.uk">joelle.mak@lshtm.ac.uk</a>) або професорці Лорейн Бакхус (<a href="mailto:loraine.bacchus@lshtm.ac.uk">loraine.bacchus@lshtm.ac.uk</a>).
     </p>
@@ -267,4 +263,4 @@
     </p>
   </div>
 </main>
-  
+
