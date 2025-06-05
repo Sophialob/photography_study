@@ -137,24 +137,14 @@
       color: #cce5ff;
     }
 
-    /* Updated Language Button Style */
+    /* Original select styling restored */
     select {
-      font-size: 18px;
-      padding: 12px 20px;
-      border-radius: 8px;
-      border: 2px solid #28a745;
-      margin-top: 15px;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
       cursor: pointer;
-      background-color: white;
-      color: #333;
-      font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-    }
-
-    select:hover {
-      border-color: #218838;
-      background-color: #f0fff5;
     }
   </style>
 
@@ -233,13 +223,11 @@
       </span>
     </h1>
 
-    <!-- Wrapped Select for Spacing -->
-    <div style="margin-top: 20px;">
-      <select onchange="switchLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="uk">Ukrainian</option>
-      </select>
-    </div>
+    <!-- Restored simple dropdown -->
+    <select onchange="switchLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="uk">Ukrainian</option>
+    </select>
   </header>
 
   <div class="container">
@@ -258,7 +246,6 @@
         </li>
       </ul>
     </div>
-
 
 
     <main class="main">
