@@ -304,53 +304,56 @@
 <p> Дякуємо, що знайшли час прочитати цю інформацію. Якщо ви вважаєте, що хочете взяти участь у дослідженні, надішліть електронного листа дослідниці, відповідальній за проєкт, Софії Лобановій-Ростовській (<a href="mailto: sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>). XXXXX Вона попросить вас підтвердити вашу відповідність критеріям дослідження та заповнити форму згоди, повернувши їй документ через DocuSign електронною поштою. Якщо вам ще не виповнилось 18 років, тоді ваші батьки або законний опікун повинні будуть підписати форму згоди. Після цього з вами зв’яжуться електронною поштою або телефоном, щоб повідомити деталі першого семінару, який відбудеться 28 червня 2025 року.  </p>
     </main>
 
-  <script>
+ <script>
   function switchLanguage(lang) {
     const languages = ['en', 'uk'];
     languages.forEach(l => {
       // Header and banner
-      document.getElementById(header-${l}).style.display = 'none';
-      document.getElementById(link-survey-banner-${l}).style.display = 'none';
+      document.getElementById(`header-${l}`).style.display = 'none';
+      document.getElementById(`link-survey-banner-${l}`).style.display = 'none';
 
       // Language sections
-      const section = document.getElementById(lang-${l});
+      const section = document.getElementById(`lang-${l}`);
       if (section) section.classList.remove('active');
 
       // Sidebar headings and links
-      document.getElementById(sidebar-header-${l}).style.display = 'none';
-      const linkInfo = document.getElementById(link-info-${l});
-      const linkContact = document.getElementById(link-contact-${l});
+      const header = document.getElementById(`sidebar-header-${l}`);
+      if (header) header.style.display = 'none';
+
+      const linkInfo = document.getElementById(`link-info-${l}`);
+      const linkContact = document.getElementById(`link-contact-${l}`);
       if (linkInfo) linkInfo.style.display = 'none';
       if (linkContact) linkContact.style.display = 'none';
     });
 
     // Show selected language content
-    document.getElementById(header-${lang}).style.display = 'inline';
-    document.getElementById(link-survey-banner-${lang}).style.display = 'inline';
+    const selectedHeader = document.getElementById(`header-${lang}`);
+    if (selectedHeader) selectedHeader.style.display = 'inline';
 
-    const activeSection = document.getElementById(lang-${lang});
+    const banner = document.getElementById(`link-survey-banner-${lang}`);
+    if (banner) banner.style.display = 'inline';
+
+    const activeSection = document.getElementById(`lang-${lang}`);
     if (activeSection) activeSection.classList.add('active');
 
-    // Show correct sidebar
-    document.getElementById(sidebar-header-${lang}).style.display = 'block';
-    const linkInfo = document.getElementById(link-info-${lang});
-    const linkContact = document.getElementById(link-contact-${lang});
+    const sidebarHeader = document.getElementById(`sidebar-header-${lang}`);
+    if (sidebarHeader) sidebarHeader.style.display = 'block';
+
+    const linkInfo = document.getElementById(`link-info-${lang}`);
+    const linkContact = document.getElementById(`link-contact-${lang}`);
     if (linkInfo) linkInfo.style.display = 'inline';
     if (linkContact) linkContact.style.display = 'inline';
   }
 
-  // Prevent auto-scroll to #info or any hash on page load
+  // Prevent auto-scroll to hash on load
   window.addEventListener('DOMContentLoaded', () => {
     const scrollY = window.scrollY;
-
     if (window.location.hash) {
       history.replaceState(null, null, window.location.pathname + window.location.search);
     }
-
-    // Restore original position
     window.scrollTo(0, scrollY);
 
-    // Default language
+    // Set default language
     switchLanguage('en');
   });
 </script>
