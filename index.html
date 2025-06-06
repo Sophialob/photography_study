@@ -96,13 +96,6 @@
 
     .sidebar li {
       margin-bottom: 10px;
-      padding-right: 10px;
-    }
-
-    .sidebar a {
-      display: block;
-      white-space: normal;
-      overflow-wrap: break-word;
     }
 
     .main {
@@ -149,6 +142,43 @@
   </style>
 </head>
 <body>
+  <div id="top-banner">
+    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" id="link-survey-banner-en">Contact us here to participate</a>
+    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" id="link-survey-banner-uk" style="display:none;">Зв'яжіться з нами, щоб взяти участь</a>
+  </div>
+
+  <header>
+    <div class="logo-container">
+      <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
+      <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
+    </div>
+
+    <h1 class="header">
+      <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
+      <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
+    </h1>
+
+    <select onchange="switchLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="uk">Ukrainian</option>
+    </select>
+  </header>
+
+  <div class="container">
+    <div id="contents" class="sidebar">
+      <h3 id="sidebar-header-en" class="sidebar-text">Contents</h3>
+      <h3 id="sidebar-header-uk" class="sidebar-text" style="display:none;">Зміст</h3>
+      <ul>
+        <li>
+          <a href="index.html#info" class="sidebar-text" id="link-info-en">Participant Information</a>
+          <a href="index.html#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
+        </li>
+        <li>
+          <a href="contact.html" class="sidebar-text" id="link-contact-en">Parent/Guardian Information</a>
+          <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none">Інформаційний лист для батьків/опікунів</a>
+        </li>
+      </ul>
+    </div>
     <main class="main">
       <!-- English Content -->
       <div id="lang-en" class="language-section active">
@@ -273,37 +303,37 @@
 <p> Дякуємо, що знайшли час прочитати цю інформацію. Якщо ви вважаєте, що хочете взяти участь у дослідженні, надішліть електронного листа дослідниці, відповідальній за проєкт, Софії Лобановій-Ростовській (<a href="mailto: sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>). XXXXX Вона попросить вас підтвердити вашу відповідність критеріям дослідження та заповнити форму згоди, повернувши їй документ через DocuSign електронною поштою. Якщо вам ще не виповнилось 18 років, тоді ваші батьки або законний опікун повинні будуть підписати форму згоди. Після цього з вами зв’яжуться електронною поштою або телефоном, щоб повідомити деталі першого семінару, який відбудеться 28 червня 2025 року.  </p>
     </main>
 
-<script>
+  <script>
   function switchLanguage(lang) {
     const languages = ['en', 'uk'];
     languages.forEach(l => {
       // Header and banner
-      document.getElementById(`header-${l}`).style.display = 'none';
-      document.getElementById(`link-survey-banner-${l}`).style.display = 'none';
+      document.getElementById(header-${l}).style.display = 'none';
+      document.getElementById(link-survey-banner-${l}).style.display = 'none';
 
       // Language sections
-      const section = document.getElementById(`lang-${l}`);
+      const section = document.getElementById(lang-${l});
       if (section) section.classList.remove('active');
 
       // Sidebar headings and links
-      document.getElementById(`sidebar-header-${l}`).style.display = 'none';
-      const linkInfo = document.getElementById(`link-info-${l}`);
-      const linkContact = document.getElementById(`link-contact-${l}`);
+      document.getElementById(sidebar-header-${l}).style.display = 'none';
+      const linkInfo = document.getElementById(link-info-${l});
+      const linkContact = document.getElementById(link-contact-${l});
       if (linkInfo) linkInfo.style.display = 'none';
       if (linkContact) linkContact.style.display = 'none';
     });
 
     // Show selected language content
-    document.getElementById(`header-${lang}`).style.display = 'inline';
-    document.getElementById(`link-survey-banner-${lang}`).style.display = 'inline';
+    document.getElementById(header-${lang}).style.display = 'inline';
+    document.getElementById(link-survey-banner-${lang}).style.display = 'inline';
 
-    const activeSection = document.getElementById(`lang-${lang}`);
+    const activeSection = document.getElementById(lang-${lang});
     if (activeSection) activeSection.classList.add('active');
 
     // Show correct sidebar
-    document.getElementById(`sidebar-header-${lang}`).style.display = 'block';
-    const linkInfo = document.getElementById(`link-info-${lang}`);
-    const linkContact = document.getElementById(`link-contact-${lang}`);
+    document.getElementById(sidebar-header-${lang}).style.display = 'block';
+    const linkInfo = document.getElementById(link-info-${lang});
+    const linkContact = document.getElementById(link-contact-${lang});
     if (linkInfo) linkInfo.style.display = 'inline';
     if (linkContact) linkContact.style.display = 'inline';
   }
@@ -323,5 +353,3 @@
     switchLanguage('en');
   });
 </script>
-</body>
-</html>
