@@ -68,13 +68,14 @@
       flex-direction: row;
       max-width: 1200px;
       margin: 0 auto;
+      align-items: flex-start;
+      min-height: 100vh;
     }
 
     .sidebar {
       width: 200px;
       padding: 20px;
       background-color: #f0f0f0;
-      height: 100vh;
       position: sticky;
       top: 0;
       overflow-y: auto;
@@ -93,9 +94,6 @@
     .main {
       flex-grow: 1;
       padding: 20px;
-    }
-
-    main {
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -197,55 +195,6 @@
       </ul>
     </div>
 
-  <script>
-    function switchLanguage(lang) {
-      document.querySelectorAll('.language-section').forEach(section => {
-        section.classList.remove('active');
-      });
-      const langSection = document.querySelector(`#lang-${lang}`);
-      if (langSection) {
-        langSection.classList.add('active');
-      }
-
-      document.querySelectorAll('.header-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      const header = document.querySelector(`#header-${lang}`);
-      if (header) header.style.display = 'inline';
-
-      document.querySelectorAll('.sidebar-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      document.querySelectorAll(`#sidebar-header-${lang}`).forEach(el => {
-        el.style.display = 'block';
-      });
-
-      const linkIds = ['info', 'survey'];
-      linkIds.forEach(id => {
-        const enLink = document.querySelector(`#link-${id}-en`);
-        const ukLink = document.querySelector(`#link-${id}-uk`);
-        if (enLink && ukLink) {
-          enLink.style.display = (lang === 'en') ? 'inline' : 'none';
-          ukLink.style.display = (lang === 'uk') ? 'inline' : 'none';
-        }
-      });
-
-      const bannerEn = document.getElementById('link-survey-banner-en');
-      const bannerUk = document.getElementById('link-survey-banner-uk');
-      if (bannerEn && bannerUk) {
-        bannerEn.style.display = (lang === 'en') ? 'inline' : 'none';
-        bannerUk.style.display = (lang === 'uk') ? 'inline' : 'none';
-      }
-    }
-
-    window.addEventListener("DOMContentLoaded", function () {
-      if (window.location.hash) {
-        history.replaceState(null, null, window.location.pathname + window.location.search);
-      }
-    });
-  </script>
-</body>
-</html>
 
     <main class="main">
       <!-- English Content -->
