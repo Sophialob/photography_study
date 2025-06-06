@@ -46,19 +46,6 @@
       text-align: center;
     }
 
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 10px;
-    }
-
-    .logo {
-      max-height: 180px;
-      width: auto;
-      display: block;
-    }
-
     h1, h2, h3 {
       color: #2c3e50;
       font-weight: bold;
@@ -152,12 +139,6 @@
   </div>
 
   <header>
-    <div class="logo-container">
-      <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
-      <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
-      <img src="assets/Sanctuary.png" alt="Logo 3" class="logo" />
-    </div>
-
     <h1 class="header">
       <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
       <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
@@ -169,21 +150,6 @@
     </select>
   </header>
 
-  <div class="container">
-    <div id="contents" class="sidebar">
-      <h3 id="sidebar-header-en" class="sidebar-text">Contents</h3>
-      <h3 id="sidebar-header-uk" class="sidebar-text" style="display:none;">Зміст</h3>
-      <ul>
-        <li>
-          <a href="index.html#info" class="sidebar-text" id="link-info-en">Participant Information</a>
-          <a href="index.html#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
-        </li>
-        <li>
-          <a href="contact.html" class="sidebar-text" id="link-contact-en">Parent/Guardian Information</a>
-          <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none;">Інформаційний лист для батьків/опікунів</a>
-        </li>
-      </ul>
-    </div>
   <main class="main">
   <!-- English Content -->
   <div id="lang-en" class="language-section active">
@@ -314,22 +280,19 @@
   </div>
 </main>
 
-  <script>
+ <script>
     function switchLanguage(lang) {
       const languages = ['en', 'uk'];
       languages.forEach(l => {
-        // Header and banner
         const header = document.getElementById(`header-${l}`);
         if (header) header.style.display = 'none';
 
         const banner = document.getElementById(`link-survey-banner-${l}`);
         if (banner) banner.style.display = 'none';
 
-        // Language sections
         const section = document.getElementById(`lang-${l}`);
         if (section) section.classList.remove('active');
 
-        // Sidebar headings and links
         const sidebarHeader = document.getElementById(`sidebar-header-${l}`);
         if (sidebarHeader) sidebarHeader.style.display = 'none';
 
@@ -340,7 +303,6 @@
         if (linkContact) linkContact.style.display = 'none';
       });
 
-      // Show selected language content
       const selectedHeader = document.getElementById(`header-${lang}`);
       if (selectedHeader) selectedHeader.style.display = 'inline';
 
@@ -367,7 +329,6 @@
       }
       window.scrollTo(0, scrollY);
 
-      // Default language
       switchLanguage('en');
     });
   </script>
