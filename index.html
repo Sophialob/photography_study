@@ -137,7 +137,6 @@
       color: #cce5ff;
     }
 
-    /* Original select styling restored */
     select {
       font-size: 14px;
       padding: 8px 12px;
@@ -189,7 +188,6 @@
       }
     }
 
-    // Prevent scroll to #info on refresh
     window.addEventListener("DOMContentLoaded", function () {
       if (window.location.hash) {
         history.replaceState(null, null, window.location.pathname + window.location.search);
@@ -210,9 +208,9 @@
 
   <header>
     <div class="logo-container">
-      <img src="assets/LSHTM square.png" alt="LSHTM Logo" class="logo" />
-      <img src="assets/USC logo.png" alt="USC Logo" class="logo" />
-      <img src="assets/Sanctuary.png" alt="USC Logo" class="logo" />
+      <img src="assets/LSHTM square.png" alt="LSHTM Logo" title="LSHTM" class="logo" />
+      <img src="assets/USC logo.png" alt="USC Logo" title="USC" class="logo" />
+      <img src="assets/Sanctuary.png" alt="Sanctuary Logo" title="Sanctuary" class="logo" />
     </div>
 
     <h1 class="header">
@@ -224,7 +222,6 @@
       </span>
     </h1>
 
-    <!-- Restored simple dropdown -->
     <select onchange="switchLanguage(this.value)">
       <option value="en">English</option>
       <option value="uk">Ukrainian</option>
@@ -247,7 +244,9 @@
         </li>
       </ul>
     </div>
-
+  </div>
+</body>
+</html>
 
     <main class="main">
       <!-- English Content -->
