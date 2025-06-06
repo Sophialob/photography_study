@@ -20,7 +20,7 @@
       color: #333;
       padding: 20px 0;
       text-align: center;
-      margin-top: 0; /* This will be handled dynamically */
+      margin-top: 50px; /* offsets fixed banner */
     }
 
     .logo-container {
@@ -35,15 +35,6 @@
       max-height: 180px;
       width: auto;
       display: block;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 
     h1, h2, h3 {
@@ -75,6 +66,8 @@
     .container {
       display: flex;
       flex-direction: row;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .sidebar {
@@ -100,6 +93,12 @@
     .main {
       flex-grow: 1;
       padding: 20px;
+    }
+
+    main {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 
     @media (max-width: 768px) {
@@ -197,6 +196,17 @@
         </li>
       </ul>
     </div>
+
+    <main class="main">
+      <div id="lang-en" class="language-section active">
+        <h2 id="info">Participant Information</h2>
+        <p>This is where your main participant info content will go...</p>
+      </div>
+      <div id="lang-uk" class="language-section">
+        <h2 id="info">Інформація для учасника</h2>
+        <p>Це місце для української версії інформації для учасника...</p>
+      </div>
+    </main>
   </div>
 
   <script>
@@ -240,17 +250,9 @@
       }
     }
 
-    // Dynamically adjust header margin based on fixed banner height
     window.addEventListener("DOMContentLoaded", function () {
       if (window.location.hash) {
         history.replaceState(null, null, window.location.pathname + window.location.search);
-      }
-
-      const banner = document.getElementById('top-banner');
-      const header = document.querySelector('header');
-      if (banner && header) {
-        const bannerHeight = banner.offsetHeight;
-        header.style.marginTop = bannerHeight + 'px';
       }
     });
   </script>
