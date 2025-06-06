@@ -301,6 +301,29 @@
       }
     });
   </script>
+  <script>
+    function switchLanguage(lang) {
+      const languages = ['en', 'uk'];
+      languages.forEach(l => {
+        document.getElementById(`lang-${l}`).classList.remove('active');
+        document.getElementById(`header-${l}`).style.display = 'none';
+        document.getElementById(`link-survey-banner-${l}`).style.display = 'none';
+        document.getElementById(`sidebar-link-${l}`).style.display = 'none';
+        document.getElementById(`sidebar-parent-${l}`).style.display = 'none';
+      });
+      document.getElementById(`lang-${lang}`).classList.add('active');
+      document.getElementById(`header-${lang}`).style.display = 'inline';
+      document.getElementById(`link-survey-banner-${lang}`).style.display = 'inline';
+      document.getElementById(`sidebar-link-${lang}`).style.display = 'block';
+      document.getElementById(`sidebar-parent-${lang}`).style.display = 'block';
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+      if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
+    });
+  </script>
 
 </body>
 </html>
