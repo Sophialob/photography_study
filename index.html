@@ -304,20 +304,52 @@
     </main>
 
   <script>
-    function switchLanguage(lang) {
-      const languages = ['en', 'uk'];
-      languages.forEach(l => {
-        document.getElementById(`header-${l}`).style.display = 'none';
-        document.getElementById(`link-survey-banner-${l}`).style.display = 'none';
-        const section = document.getElementById(`lang-${l}`);
-        if (section) section.classList.remove('active');
-      });
+  function switchLanguage(lang) {
+    const languages = ['en', 'uk'];
+    languages.forEach(l => {
+      // Header and banner
+      document.getElementById(`header-${l}`).style.display = 'none';
+      document.getElementById(`link-survey-banner-${l}`).style.display = 'none';
 
-      document.getElementById(`header-${lang}`).style.display = 'inline';
-      document.getElementById(`link-survey-banner-${lang}`).style.display = 'inline';
-      const activeSection = document.getElementById(`lang-${lang}`);
-      if (activeSection) activeSection.classList.add('active');
+      // Language sections
+      const section = document.getElementById(`lang-${l}`);
+      if (section) section.classList.remove('active');
+
+      // Sidebar headings and links
+      document.getElementById(`sidebar-header-${l}`).style.display = 'none';
+      const linkInfo = document.getElementById(`link-info-${l}`);
+      const linkContact = document.getElementById(`link-contact-${l}`);
+      if (linkInfo) linkInfo.style.display = 'none';
+      if (linkContact) linkContact.style.display = 'none';
+    });
+
+    // Show selected language content
+    document.getElementById(`header-${lang}`).style.display = 'inline';
+    document.getElementById(`link-survey-banner-${lang}`).style.display = 'inline';
+
+    const activeSection = document.getElementById(`lang-${lang}`);
+    if (activeSection) activeSection.classList.add('active');
+
+    // Show correct sidebar
+    document.getElementById(`sidebar-header-${lang}`).style.display = 'block';
+    const linkInfo = document.getElementById(`link-info-${lang}`);
+    const linkContact = document.getElementById(`link-contact-${lang}`);
+    if (linkInfo) linkInfo.style.display = 'inline';
+    if (linkContact) linkContact.style.display = 'inline';
+  }
+
+  // Prevent auto-scroll to #info or any hash on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    const scrollY = window.scrollY;
+
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
     }
-  </script>
-</body>
-</html>
+
+    // Restore original position
+    window.scrollTo(0, scrollY);
+
+    // Default language
+    switchLanguage('en');
+  });
+</script>
