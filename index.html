@@ -58,6 +58,10 @@
       width: auto;
       display: block;
     }
+    /* New style to move logo 2 slightly to the right */
+    .logo2 {
+      margin-left: 20px;
+    }
 
     h1, h2, h3 {
       color: #2c3e50;
@@ -150,7 +154,7 @@
   <header>
     <div class="logo-container">
       <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
-      <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
+      <img src="assets/USC logo.png" alt="Logo 2" class="logo logo2" />
       <img src="assets/Sanctuary.png" alt="Logo 3" class="logo" />
     </div>
 
@@ -304,7 +308,7 @@
 <p> Дякуємо, що знайшли час прочитати цю інформацію. Якщо ви вважаєте, що хочете взяти участь у дослідженні, надішліть електронного листа дослідниці, відповідальній за проєкт, Софії Лобановій-Ростовській (<a href="mailto: sophia.lobanov-rostovsky@lshtm.ac.uk">sophia.lobanov-rostovsky@lshtm.ac.uk</a>). XXXXX Вона попросить вас підтвердити вашу відповідність критеріям дослідження та заповнити форму згоди, повернувши їй документ через DocuSign електронною поштою. Якщо вам ще не виповнилось 18 років, тоді ваші батьки або законний опікун повинні будуть підписати форму згоди. Після цього з вами зв’яжуться електронною поштою або телефоном, щоб повідомити деталі першого семінару, який відбудеться 28 червня 2025 року.  </p>
     </main>
 
- <script>
+<script>
   function switchLanguage(lang) {
     const languages = ['en', 'uk'];
     languages.forEach(l => {
@@ -357,3 +361,5 @@
     switchLanguage('en');
   });
 </script>
+</body>
+</html>
