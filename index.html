@@ -20,7 +20,7 @@
       color: #333;
       padding: 20px 0;
       text-align: center;
-      margin-top: 60px; /* offset for fixed banner */
+      margin-top: 0; /* handled by JS */
     }
 
     .logo-container {
@@ -191,6 +191,14 @@
     window.addEventListener("DOMContentLoaded", function () {
       if (window.location.hash) {
         history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
+
+      // Offset header to avoid being hidden under fixed banner
+      const banner = document.getElementById('top-banner');
+      const header = document.querySelector('header');
+      if (banner && header) {
+        const bannerHeight = banner.offsetHeight;
+        header.style.marginTop = bannerHeight + 'px';
       }
     });
   </script>
