@@ -13,13 +13,36 @@
       padding: 0;
       background-color: #f4f4f9;
       color: #333;
-      padding-top: 50px;
+    }
+
+    #top-banner {
+      background-color: #28a745;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #top-banner a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    #top-banner a:hover {
+      color: #cce5ff;
     }
 
     header {
       background-color: white;
       color: #333;
-      padding: 20px 0;
+      padding: 80px 0 10px;
       text-align: center;
     }
 
@@ -27,7 +50,7 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .logo {
@@ -36,22 +59,9 @@
       display: block;
     }
 
-    main {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-
     h1, h2, h3 {
       color: #2c3e50;
       font-weight: bold;
-    }
-
-    p {
-      font-weight: normal;
     }
 
     a {
@@ -63,26 +73,18 @@
       text-decoration: underline;
     }
 
-    .language-section {
-      display: none;
-    }
-
-    .language-section.active {
-      display: block;
-    }
-
     .container {
       display: flex;
       flex-direction: row;
     }
 
     .sidebar {
-      width: 200px;
+      width: 220px;
       padding: 20px;
       background-color: #f0f0f0;
       height: 100vh;
       position: sticky;
-      top: 0;
+      top: 70px;
       overflow-y: auto;
     }
 
@@ -101,6 +103,32 @@
       padding: 20px;
     }
 
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px 20px 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-section {
+      display: none;
+    }
+
+    .language-section.active {
+      display: block;
+    }
+
+    select {
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -111,96 +139,15 @@
         position: relative;
       }
     }
-
-    #top-banner {
-  background-color: #28a745; /* Green */
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 18px;
-  font-weight: bold;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-    #top-banner a {
-      color: white;
-      text-decoration: underline;
-    }
-
-    #top-banner a:hover {
-      color: #cce5ff;
-    }
-
-    /* NEW: Make language switch button larger and styled */
-    select {
-      font-size: 14px;
-      padding: 8px 12px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      margin-top: 10px;
-      cursor: pointer;
-    }
   </style>
-
-  <script>
-    function switchLanguage(lang) {
-      document.querySelectorAll('.language-section').forEach(section => {
-        section.classList.remove('active');
-      });
-      const langSection = document.querySelector(`#lang-${lang}`);
-      if (langSection) {
-        langSection.classList.add('active');
-      }
-
-      document.querySelectorAll('.header-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      const header = document.querySelector(`#header-${lang}`);
-      if (header) header.style.display = 'inline';
-
-      document.querySelectorAll('.sidebar-text').forEach(el => {
-        el.style.display = 'none';
-      });
-      document.querySelectorAll(`#sidebar-header-${lang}`).forEach(el => {
-        el.style.display = 'block';
-      });
-
-      const linkIds = ['info', 'contact', 'survey'];
-      linkIds.forEach(id => {
-        const enLink = document.querySelector(`#link-${id}-en`);
-        const ukLink = document.querySelector(`#link-${id}-uk`);
-
-        if (enLink && ukLink) {
-          enLink.style.display = (lang === 'en') ? 'inline' : 'none';
-          ukLink.style.display = (lang === 'uk') ? 'inline' : 'none';
-        }
-      });
-
-      const bannerEn = document.getElementById('link-survey-banner-en');
-      const bannerUk = document.getElementById('link-survey-banner-uk');
-      if (bannerEn && bannerUk) {
-        bannerEn.style.display = (lang === 'en') ? 'inline' : 'none';
-        bannerUk.style.display = (lang === 'uk') ? 'inline' : 'none';
-      }
-    }
-  </script>
 </head>
 <body>
-  <header>
-    <div id="top-banner">
-  <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" target="_self" id="link-survey-banner-en">
-    Contact us here to participate
-  </a>
-  <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" target="_self" id="link-survey-banner-uk" style="display:none;">
-    Зв'яжіться з нами, щоб взяти участь
-  </a>
-</div>
+  <div id="top-banner">
+    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" id="link-survey-banner-en">Contact us here to participate</a>
+    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" id="link-survey-banner-uk" style="display:none;">Зв'яжіться з нами, щоб взяти участь</a>
+  </div>
 
+  <header>
     <div class="logo-container">
       <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
       <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
@@ -210,33 +157,28 @@
       <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
       <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
     </h1>
-    
+
     <select onchange="switchLanguage(this.value)">
       <option value="en">English</option>
       <option value="uk">Ukrainian</option>
     </select>
   </header>
-</body>
-</html>
-
 
   <div class="container">
     <div id="contents" class="sidebar">
       <h3 id="sidebar-header-en" class="sidebar-text">Contents</h3>
       <h3 id="sidebar-header-uk" class="sidebar-text" style="display:none;">Зміст</h3>
-
-    <ul>
-  <li>
-    <a href="index.html#info" class="sidebar-text" id="link-info-en">Participant Information</a>
-    <a href="index.html#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
-  </li>
-  <li>
-    <a href="contact.html" class="sidebar-text" id="link-contact-en">Parent/Guardian Information</a>
-    <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none">Інформаційний лист для батьків/опікунів</a>
-  </li>
-</ul>
-    </div> 
-    
+      <ul>
+        <li>
+          <a href="index.html#info" class="sidebar-text" id="link-info-en">Participant Information</a>
+          <a href="index.html#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
+        </li>
+        <li>
+          <a href="contact.html" class="sidebar-text" id="link-contact-en">Parent/Guardian Information</a>
+          <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none">Інформаційний лист для батьків/опікунів</a>
+        </li>
+      </ul>
+    </div>
     
   <main class="main">
   <!-- English Content -->
