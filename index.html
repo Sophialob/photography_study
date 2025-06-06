@@ -11,7 +11,7 @@
       line-height: 1.6;
       margin: 0;
       padding: 0;
-      padding-top: 60px; /* Offset for fixed top banner */
+      padding-top: 60px;
       background-color: #f4f4f9;
       color: #333;
     }
@@ -21,7 +21,6 @@
       color: #333;
       padding: 20px 0;
       text-align: center;
-      /* Removed margin-top */
     }
 
     .logo-container {
@@ -64,53 +63,33 @@
       display: block;
     }
 
-    .container {
-      display: flex;
-      flex-direction: row;
-      max-width: 1200px;
-      margin: 0 auto;
-      align-items: flex-start;
-      min-height: 100vh;
-    }
-
-    .sidebar {
-      width: 200px;
-      padding: 20px;
-      background-color: #f0f0f0;
-      position: sticky;
+    .sidenav {
+      height: 100%;
+      width: 160px;
+      position: fixed;
+      z-index: 1;
       top: 0;
-      overflow-y: auto;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 20px;
     }
 
-    .sidebar ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
+    .sidenav a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #818181;
+      display: block;
     }
 
-    .sidebar li {
-      margin-bottom: 10px;
+    .sidenav a:hover {
+      color: #f1f1f1;
     }
 
     .main {
-      flex-grow: 1;
+      margin-left: 160px;
       padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      min-width: 0; /* Prevent flex overflow */
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
     }
 
     #top-banner {
@@ -145,17 +124,31 @@
       margin-top: 10px;
       cursor: pointer;
     }
+
+    @media (max-width: 768px) {
+      .main {
+        margin-left: 0;
+      }
+
+      .sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+    }
   </style>
 </head>
-
 <body>
   <div id="top-banner">
-    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" target="_self" id="link-survey-banner-en">
-      Contact us here to participate
-    </a>
-    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" target="_self" id="link-survey-banner-uk" style="display:none;">
-      Зв'яжіться з нами, щоб взяти участь
-    </a>
+    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" target="_self" id="link-survey-banner-en">Contact us here to participate</a>
+    <a href="mailto:sophia.lobanov-rostovsky@lshtm.ac.uk" target="_self" id="link-survey-banner-uk" style="display:none;">Зв'яжіться з нами, щоб взяти участь</a>
+  </div>
+
+  <div class="sidenav">
+    <a href="index.html" id="sidebar-link-en">Participant Information</a>
+    <a href="index.html" id="sidebar-link-uk" style="display:none;">Інформація для учасника</a>
+    <a href="contact.html" id="sidebar-parent-en">Parent/Guardian Information</a>
+    <a href="contact.html" id="sidebar-parent-uk" style="display:none;">Інформаційний лист для батьків/опікунів</a>
   </div>
 
   <header>
@@ -164,38 +157,15 @@
       <img src="assets/USC logo.png" alt="USC Logo" class="logo" />
       <img src="assets/Sanctuary.png" alt="Sanctuary Logo" class="logo" />
     </div>
-
     <h1 class="header">
-      <span class="header-text" id="header-en">
-        Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war
-      </span>
-      <span class="header-text" id="header-uk" style="display:none;">
-        Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни
-      </span>
+      <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
+      <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
     </h1>
-
     <select onchange="switchLanguage(this.value)">
       <option value="en">English</option>
       <option value="uk">Ukrainian</option>
     </select>
   </header>
-
-  <div class="container">
-    <div id="contents" class="sidebar">
-      <h3 id="sidebar-header-en" class="sidebar-text">Contents</h3>
-      <h3 id="sidebar-header-uk" class="sidebar-text" style="display:none;">Зміст</h3>
-
-      <ul>
-        <li>
-          <a href="#info" class="sidebar-text" id="link-info-en">Participant Information</a>
-          <a href="#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
-        </li>
-        <li>
-          <a href="contact.html" class="sidebar-text" id="link-survey-en">Parent/Guardian Information</a>
-          <a href="contact.html" class="sidebar-text" id="link-survey-uk" style="display:none;">Інформаційний лист для батьків/опікунів</a>
-        </li>
-      </ul>
-    </div>
 
 
     <main class="main">
@@ -331,6 +301,31 @@
       }
     });
   </script>
+  <script>
+    function switchLanguage(lang) {
+      const languages = ['en', 'uk'];
+      languages.forEach(l => {
+        document.getElementById(`lang-${l}`).classList.remove('active');
+        document.getElementById(`header-${l}`).style.display = 'none';
+        document.getElementById(`link-survey-banner-${l}`).style.display = 'none';
+        document.getElementById(`sidebar-link-${l}`).style.display = 'none';
+        document.getElementById(`sidebar-parent-${l}`).style.display = 'none';
+      });
+      document.getElementById(`lang-${lang}`).classList.add('active');
+      document.getElementById(`header-${lang}`).style.display = 'inline';
+      document.getElementById(`link-survey-banner-${lang}`).style.display = 'inline';
+      document.getElementById(`sidebar-link-${lang}`).style.display = 'block';
+      document.getElementById(`sidebar-parent-${lang}`).style.display = 'block';
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+      if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
+    });
+  </script>
+</body>
+</html>
 
 </body>
 </html>
