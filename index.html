@@ -116,10 +116,24 @@
       cursor: pointer;
     }
 
+    .footer-logos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px auto;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      max-height: 100px;
+      width: auto;
+    }
+
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
       }
+
       .sidebar {
         width: 100%;
         height: auto;
@@ -285,7 +299,14 @@
 <p> Дякуємо, що знайшли час прочитати цю інформацію. Якщо ви бажаєте взяти участь у дослідженні, будь ласка, надішліть електронного листа дослідниці, відповідальній за проєкт, Софії Лобановій-Ростовській (sophia.lobanov-rostovsky@lshtm.ac.uk), та підтвердьте, що ви <strong>(1) українка, (2) вам від 15 до 24 років, (3) ви проживали в Україні до лютого 2022 року та (4) наразі проживаєте у Великій Британії.</strong> Після цього вас попросять заповнити форму згоди та надіслати її електронною поштою через DocuSign. Якщо вам ще не виповнилось 18 років, тоді ваші батьки або законний опікун повинні будуть підписати форму згоди. Після цього з вами зв’яжуться електронною поштою або телефоном, щоб повідомити деталі першого семінару, який відбудеться 28 червня 2025 року.  </p>
     </main>
 
- <script>
+ <!-- Footer Logos -->
+  <div class="footer-logos">
+    <img src="assets/LSHTM square.png" alt="LSHTM Logo" class="footer-logo" />
+    <img src="assets/USC logo.png" alt="USC Logo" class="footer-logo" />
+    <img src="assets/Sanctuary.png" alt="Sanctuary Logo" class="footer-logo" />
+  </div>
+
+  <script>
     function switchLanguage(lang) {
       const languages = ['en', 'uk'];
       languages.forEach(l => {
@@ -333,7 +354,6 @@
         history.replaceState(null, null, window.location.pathname + window.location.search);
       }
       window.scrollTo(0, scrollY);
-
       switchLanguage('en');
     });
   </script>
