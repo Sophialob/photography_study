@@ -46,23 +46,6 @@
       text-align: center;
     }
 
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 10px;
-    }
-
-    .logo {
-      max-height: 180px;
-      width: auto;
-      display: block;
-    }
-    /* New style to move logo 2 slightly to the right */
-    .logo2 {
-      margin-left: 20px;
-    }
-
     h1, h2, h3 {
       color: #2c3e50;
       font-weight: bold;
@@ -152,12 +135,6 @@
   </div>
 
   <header>
-    <div class="logo-container">
-      <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
-      <img src="assets/USC logo.png" alt="Logo 2" class="logo logo2" />
-      <img src="assets/Sanctuary.png" alt="Logo 3" class="logo" />
-    </div>
-
     <h1 class="header">
       <span class="header-text" id="header-en">Coping and help-seeking among Ukrainian adolescent girls and young women living in the UK since the onset of the Russia-Ukraine war</span>
       <span class="header-text" id="header-uk" style="display:none;">Подолання труднощів та пошук допомоги серед українських дівчат-підлітків та молодих жінок, які проживають у Великій Британії з початку російсько-української війни</span>
@@ -180,7 +157,7 @@
         </li>
         <li>
           <a href="contact.html" class="sidebar-text" id="link-contact-en">Parent/Guardian Information</a>
-          <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none">Інформаційний лист для батьків/опікунів</a>
+          <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none;">Інформаційний лист для батьків/опікунів</a>
         </li>
       </ul>
     </div>
@@ -308,58 +285,57 @@
 <p> Дякуємо, що знайшли час прочитати цю інформацію. Якщо ви бажаєте взяти участь у дослідженні, будь ласка, надішліть електронного листа дослідниці, відповідальній за проєкт, Софії Лобановій-Ростовській (sophia.lobanov-rostovsky@lshtm.ac.uk), та підтвердьте, що ви <strong>(1) українка, (2) вам від 15 до 24 років, (3) ви проживали в Україні до лютого 2022 року та (4) наразі проживаєте у Великій Британії.</strong> Після цього вас попросять заповнити форму згоди та надіслати її електронною поштою через DocuSign. Якщо вам ще не виповнилось 18 років, тоді ваші батьки або законний опікун повинні будуть підписати форму згоди. Після цього з вами зв’яжуться електронною поштою або телефоном, щоб повідомити деталі першого семінару, який відбудеться 28 червня 2025 року.  </p>
     </main>
 
-<script>
-  function switchLanguage(lang) {
-    const languages = ['en', 'uk'];
-    languages.forEach(l => {
-      // Header and banner
-      document.getElementById(`header-${l}`).style.display = 'none';
-      document.getElementById(`link-survey-banner-${l}`).style.display = 'none';
+ <script>
+    function switchLanguage(lang) {
+      const languages = ['en', 'uk'];
+      languages.forEach(l => {
+        const header = document.getElementById(`header-${l}`);
+        if (header) header.style.display = 'none';
 
-      // Language sections
-      const section = document.getElementById(`lang-${l}`);
-      if (section) section.classList.remove('active');
+        const banner = document.getElementById(`link-survey-banner-${l}`);
+        if (banner) banner.style.display = 'none';
 
-      // Sidebar headings and links
-      const header = document.getElementById(`sidebar-header-${l}`);
-      if (header) header.style.display = 'none';
+        const section = document.getElementById(`lang-${l}`);
+        if (section) section.classList.remove('active');
 
-      const linkInfo = document.getElementById(`link-info-${l}`);
-      const linkContact = document.getElementById(`link-contact-${l}`);
-      if (linkInfo) linkInfo.style.display = 'none';
-      if (linkContact) linkContact.style.display = 'none';
-    });
+        const sidebarHeader = document.getElementById(`sidebar-header-${l}`);
+        if (sidebarHeader) sidebarHeader.style.display = 'none';
 
-    // Show selected language content
-    const selectedHeader = document.getElementById(`header-${lang}`);
-    if (selectedHeader) selectedHeader.style.display = 'inline';
+        const linkInfo = document.getElementById(`link-info-${l}`);
+        if (linkInfo) linkInfo.style.display = 'none';
 
-    const banner = document.getElementById(`link-survey-banner-${lang}`);
-    if (banner) banner.style.display = 'inline';
+        const linkContact = document.getElementById(`link-contact-${l}`);
+        if (linkContact) linkContact.style.display = 'none';
+      });
 
-    const activeSection = document.getElementById(`lang-${lang}`);
-    if (activeSection) activeSection.classList.add('active');
+      const selectedHeader = document.getElementById(`header-${lang}`);
+      if (selectedHeader) selectedHeader.style.display = 'inline';
 
-    const sidebarHeader = document.getElementById(`sidebar-header-${lang}`);
-    if (sidebarHeader) sidebarHeader.style.display = 'block';
+      const selectedBanner = document.getElementById(`link-survey-banner-${lang}`);
+      if (selectedBanner) selectedBanner.style.display = 'inline';
 
-    const linkInfo = document.getElementById(`link-info-${lang}`);
-    const linkContact = document.getElementById(`link-contact-${lang}`);
-    if (linkInfo) linkInfo.style.display = 'inline';
-    if (linkContact) linkContact.style.display = 'inline';
-  }
+      const activeSection = document.getElementById(`lang-${lang}`);
+      if (activeSection) activeSection.classList.add('active');
 
-  // Prevent auto-scroll to hash on load
-  window.addEventListener('DOMContentLoaded', () => {
-    const scrollY = window.scrollY;
-    if (window.location.hash) {
-      history.replaceState(null, null, window.location.pathname + window.location.search);
+      const sidebarHeader = document.getElementById(`sidebar-header-${lang}`);
+      if (sidebarHeader) sidebarHeader.style.display = 'block';
+
+      const linkInfo = document.getElementById(`link-info-${lang}`);
+      if (linkInfo) linkInfo.style.display = 'inline';
+
+      const linkContact = document.getElementById(`link-contact-${lang}`);
+      if (linkContact) linkContact.style.display = 'inline';
     }
-    window.scrollTo(0, scrollY);
 
-    // Set default language
-    switchLanguage('en');
-  });
-</script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const scrollY = window.scrollY;
+      if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
+      window.scrollTo(0, scrollY);
+
+      switchLanguage('en');
+    });
+  </script>
 </body>
 </html>
