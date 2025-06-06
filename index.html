@@ -42,9 +42,8 @@
     header {
       background-color: white;
       color: #333;
-      padding: 20px 0 10px;
+      padding: 80px 0 10px;
       text-align: center;
-      padding-top: 80px;
     }
 
     .logo-container {
@@ -74,6 +73,36 @@
       text-decoration: underline;
     }
 
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      width: 220px;
+      padding: 20px;
+      background-color: #f0f0f0;
+      height: 100vh;
+      position: sticky;
+      top: 70px;
+      overflow-y: auto;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .main {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
     main {
       max-width: 800px;
       margin: 0 auto;
@@ -99,6 +128,17 @@
       margin-top: 10px;
       cursor: pointer;
     }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+    }
   </style>
 </head>
 <body>
@@ -123,6 +163,22 @@
       <option value="uk">Ukrainian</option>
     </select>
   </header>
+
+  <div class="container">
+    <div id="contents" class="sidebar">
+      <h3 id="sidebar-header-en" class="sidebar-text">Contents</h3>
+      <h3 id="sidebar-header-uk" class="sidebar-text" style="display:none;">Зміст</h3>
+      <ul>
+        <li>
+          <a href="index.html#info" class="sidebar-text" id="link-info-en">Participant Information</a>
+          <a href="index.html#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
+        </li>
+        <li>
+          <a href="contact.html" class="sidebar-text" id="link-contact-en">Parent/Guardian Information</a>
+          <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none">Інформаційний лист для батьків/опікунів</a>
+        </li>
+      </ul>
+    </div>
     <main class="main">
       <!-- English Content -->
       <div id="lang-en" class="language-section active">
