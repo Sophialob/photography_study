@@ -58,6 +58,11 @@
       width: auto;
       display: block;
     }
+    
+    /* Added class for Logo 2 to move it right */
+    .logo2 {
+      margin-left: 10px; /* Adjust this value to move more or less */
+    }
 
     h1, h2, h3 {
       color: #2c3e50;
@@ -150,7 +155,7 @@
   <header>
     <div class="logo-container">
       <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
-      <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
+      <img src="assets/USC logo.png" alt="Logo 2" class="logo logo2" />
       <img src="assets/Sanctuary.png" alt="Logo 3" class="logo" />
     </div>
 
@@ -310,7 +315,7 @@
   </div>
 </main>
 
-  <script>
+ <script>
   function switchLanguage(lang) {
     const languages = ['en', 'uk'];
     languages.forEach(l => {
