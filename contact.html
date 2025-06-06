@@ -337,10 +337,6 @@
     const linkInfo = document.getElementById(`link-info-${l}`);
     if (linkInfo) linkInfo.style.display = 'none';
 
-    const linkContact = document.getElementById(`link-contact-${l}`);
-    // <-- FIX: Don't hide the Ukrainian parent/guardian link -->
-    if (linkContact && !(l === 'uk' && linkContact.id === 'link-contact-uk')) {
-      linkContact.style.display = 'none';
     }
   });
 
@@ -362,11 +358,6 @@
 
   const linkContact = document.getElementById(`link-contact-${lang}`);
   if (linkContact) linkContact.style.display = 'inline';
-
-  // <-- FIX: Always show Ukrainian Parent/Guardian link -->
-  const linkContactUk = document.getElementById('link-contact-uk');
-  if (linkContactUk) {
-    linkContactUk.style.display = 'inline';
   }
 }
   }
