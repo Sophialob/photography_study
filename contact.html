@@ -297,57 +297,71 @@
   </div>
 </main>
 
+<!-- Footer Logos -->
+<div class="footer-logos">
+  <img src="assets/LSHTM square.png" alt="LSHTM Logo" class="footer-logo" />
+  <img src="assets/USC logo.png" alt="USC Logo" class="footer-logo" />
+  <img src="assets/Sanctuary.png" alt="Sanctuary Logo" class="footer-logo" />
+</div>
+
+<style>
+  .footer-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    max-height: 100px;
+    width: auto;
+  }
+</style>
+
+<!-- Existing scripts -->
 <script>
-    function switchLanguage(lang) {
-      const languages = ['en', 'uk'];
-      languages.forEach(l => {
-        const header = document.getElementById(`header-${l}`);
-        if (header) header.style.display = 'none';
-
-        const banner = document.getElementById(`link-survey-banner-${l}`);
-        if (banner) banner.style.display = 'none';
-
-        const section = document.getElementById(`lang-${l}`);
-        if (section) section.classList.remove('active');
-
-        const sidebarHeader = document.getElementById(`sidebar-header-${l}`);
-        if (sidebarHeader) sidebarHeader.style.display = 'none';
-
-        const linkInfo = document.getElementById(`link-info-${l}`);
-        if (linkInfo) linkInfo.style.display = 'none';
-
-        const linkContact = document.getElementById(`link-contact-${l}`);
-        if (linkContact) linkContact.style.display = 'none';
-      });
-
-      const selectedHeader = document.getElementById(`header-${lang}`);
-      if (selectedHeader) selectedHeader.style.display = 'inline';
-
-      const selectedBanner = document.getElementById(`link-survey-banner-${lang}`);
-      if (selectedBanner) selectedBanner.style.display = 'inline';
-
-      const activeSection = document.getElementById(`lang-${lang}`);
-      if (activeSection) activeSection.classList.add('active');
-
-      const sidebarHeader = document.getElementById(`sidebar-header-${lang}`);
-      if (sidebarHeader) sidebarHeader.style.display = 'block';
-
-      const linkInfo = document.getElementById(`link-info-${lang}`);
-      if (linkInfo) linkInfo.style.display = 'inline';
-
-      const linkContact = document.getElementById(`link-contact-${lang}`);
-      if (linkContact) linkContact.style.display = 'inline';
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const scrollY = window.scrollY;
-      if (window.location.hash) {
-        history.replaceState(null, null, window.location.pathname + window.location.search);
-      }
-      window.scrollTo(0, scrollY);
-
-      switchLanguage('en');
+  function switchLanguage(lang) {
+    const languages = ['en', 'uk'];
+    languages.forEach(l => {
+      document.getElementById(`header-${l}`).style.display = 'none';
+      document.getElementById(`link-survey-banner-${l}`).style.display = 'none';
+      const section = document.getElementById(`lang-${l}`);
+      if (section) section.classList.remove('active');
+      const header = document.getElementById(`sidebar-header-${l}`);
+      if (header) header.style.display = 'none';
+      const linkInfo = document.getElementById(`link-info-${l}`);
+      const linkContact = document.getElementById(`link-contact-${l}`);
+      if (linkInfo) linkInfo.style.display = 'none';
+      if (linkContact) linkContact.style.display = 'none';
     });
-  </script>
+
+    const selectedHeader = document.getElementById(`header-${lang}`);
+    if (selectedHeader) selectedHeader.style.display = 'inline';
+
+    const banner = document.getElementById(`link-survey-banner-${lang}`);
+    if (banner) banner.style.display = 'inline';
+
+    const activeSection = document.getElementById(`lang-${lang}`);
+    if (activeSection) activeSection.classList.add('active');
+
+    const sidebarHeader = document.getElementById(`sidebar-header-${lang}`);
+    if (sidebarHeader) sidebarHeader.style.display = 'block';
+
+    const linkInfo = document.getElementById(`link-info-${lang}`);
+    const linkContact = document.getElementById(`link-contact-${lang}`);
+    if (linkInfo) linkInfo.style.display = 'inline';
+    if (linkContact) linkContact.style.display = 'inline';
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const scrollY = window.scrollY;
+    if (window.location.hash) {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+    window.scrollTo(0, scrollY);
+    switchLanguage('en');
+  });
+</script>
 </body>
 </html>
