@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Information Sheet for PhD Study on Coping and Help-seeking among Ukrainian Adolescent Girls and Young Women in the UK" />
-  <title>Parent/Guardian Information</title>
+  <title>Participant Information</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -58,11 +58,6 @@
       width: auto;
       display: block;
     }
-    
-    /* Increased left margin for Logo 2 */
-    .logo2 {
-      margin-left: 20px; /* Adjusted margin */
-    }
 
     h1, h2, h3 {
       color: #2c3e50;
@@ -101,6 +96,11 @@
 
     .sidebar li {
       margin-bottom: 10px;
+    }
+
+    /* Fix: ensure sidebar links are always visible and inline */
+    .sidebar a {
+      display: inline;
     }
 
     .main {
@@ -155,7 +155,7 @@
   <header>
     <div class="logo-container">
       <img src="assets/LSHTM square.png" alt="Logo 1" class="logo" />
-      <img src="assets/USC logo.png" alt="Logo 2" class="logo logo2" />
+      <img src="assets/USC logo.png" alt="Logo 2" class="logo" />
       <img src="assets/Sanctuary.png" alt="Logo 3" class="logo" />
     </div>
 
@@ -177,11 +177,11 @@
       <ul>
         <li>
           <a href="index.html#info" class="sidebar-text" id="link-info-en">Participant Information</a>
-          <a href="index.html#info" class="sidebar-text" id="link-info-uk" style="display:none;">Інформація для учасника</a>
+          <a href="index.html#info" class="sidebar-text" id="link-info-uk">Інформація для учасника</a>
         </li>
         <li>
           <a href="contact.html" class="sidebar-text" id="link-contact-en">Parent/Guardian Information</a>
-          <a href="contact.html" class="sidebar-text" id="link-contact-uk" style="display:none">Інформаційний лист для батьків/опікунів</a>
+          <a href="contact.html" class="sidebar-text" id="link-contact-uk">Інформаційний лист для батьків/опікунів</a>
         </li>
       </ul>
     </div>
@@ -315,20 +315,25 @@
   </div>
 </main>
 
- <script>
+  <script>
   function switchLanguage(lang) {
     const languages = ['en', 'uk'];
     languages.forEach(l => {
       // Header and banner
-      document.getElementById(`header-${l}`).style.display = 'none';
-      document.getElementById(`link-survey-banner-${l}`).style.display = 'none';
+      const header = document.getElementById(`header-${l}`);
+      if (header) header.style.display = 'none';
+
+      const banner = document.getElementById(`link-survey-banner-${l}`);
+      if (banner) banner.style.display = 'none';
 
       // Language sections
       const section = document.getElementById(`lang-${l}`);
       if (section) section.classList.remove('active');
 
       // Sidebar headings and links
-      document.getElementById(`sidebar-header-${l}`).style.display = 'none';
+      const sidebarHeader = document.getElementById(`sidebar-header-${l}`);
+      if (sidebarHeader) sidebarHeader.style.display = 'none';
+
       const linkInfo = document.getElementById(`link-info-${l}`);
       const linkContact = document.getElementById(`link-contact-${l}`);
       if (linkInfo) linkInfo.style.display = 'none';
@@ -336,34 +341,34 @@
     });
 
     // Show selected language content
-    document.getElementById(`header-${lang}`).style.display = 'inline';
-    document.getElementById(`link-survey-banner-${lang}`).style.display = 'inline';
+    const selectedHeader = document.getElementById(`header-${lang}`);
+    if (selectedHeader) selectedHeader.style.display = (lang === 'en') ? 'inline' : 'inline';
+
+    const selectedBanner = document.getElementById(`link-survey-banner-${lang}`);
+    if (selectedBanner) selectedBanner.style.display = (lang === 'en') ? 'inline' : 'inline';
 
     const activeSection = document.getElementById(`lang-${lang}`);
     if (activeSection) activeSection.classList.add('active');
 
-    // Show correct sidebar
-    document.getElementById(`sidebar-header-${lang}`).style.display = 'block';
+    const sidebarHeader = document.getElementById(`sidebar-header-${lang}`);
+    if (sidebarHeader) sidebarHeader.style.display = 'block';
+
     const linkInfo = document.getElementById(`link-info-${lang}`);
     const linkContact = document.getElementById(`link-contact-${lang}`);
     if (linkInfo) linkInfo.style.display = 'inline';
     if (linkContact) linkContact.style.display = 'inline';
   }
 
-  // Prevent auto-scroll to #info or any hash on page load
   window.addEventListener('DOMContentLoaded', () => {
     const scrollY = window.scrollY;
-
     if (window.location.hash) {
       history.replaceState(null, null, window.location.pathname + window.location.search);
     }
-
-    // Restore original position
     window.scrollTo(0, scrollY);
 
     // Default language
     switchLanguage('en');
   });
-</script>
+  </script>
 </body>
 </html>
