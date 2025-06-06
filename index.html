@@ -11,6 +11,7 @@
       line-height: 1.6;
       margin: 0;
       padding: 0;
+      padding-top: 60px; /* Offset for fixed top banner */
       background-color: #f4f4f9;
       color: #333;
     }
@@ -20,7 +21,7 @@
       color: #333;
       padding: 20px 0;
       text-align: center;
-      margin-top: 50px;
+      /* Removed margin-top */
     }
 
     .logo-container {
@@ -97,6 +98,7 @@
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      min-width: 0; /* Prevent flex overflow */
     }
 
     @media (max-width: 768px) {
